@@ -5,7 +5,7 @@
           About <span class="text-[#CCF303]">Joshua d. nguyen</span>
         </h3>
         <p class="lg:text-[1.375em] text-[16px] font-atyp-display font-medium text-[#6B767F] mt-[2em]">
-          I’m Joshua D. Nguyen, a developer with two years of experience in GameDev and software development, complemented by a passion for GameDev. My love for gaming, sparked by classics like the SNES and N64, inspired me to pursue a career in creating the games I’ve always enjoyed. From designing levels to coding mechanics, I’m fascinated by the creative and technical process behind the scenes.
+          I’m Joshua D. Nguyen, a developer with more than four years of experience in GameDev and software engineering. My love for gaming, sparked by classics like the SNES and N64, inspired me to pursue a career in creating the games I’ve always enjoyed. From designing levels to coding mechanics, I’m fascinated by the creative and technical process behind the scenes.
           <br /><br />
           I’ve honed my skills through personal projects in Unity and Unreal Engine, blending my passion for creativity and problem-solving. My professional background in agile environments and DevOps has equipped me with collaborative skills, technical expertise, and a commitment to delivering stable, high-quality solutions.
           <br /><br />
