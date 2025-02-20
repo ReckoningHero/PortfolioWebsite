@@ -24,7 +24,7 @@ npm run dev
 npm run build
 ```
 
-### Compile and Minify for Production
+### Compile and Publish
 
 ```sh
 npm run deploy
