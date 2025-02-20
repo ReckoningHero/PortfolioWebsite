@@ -53,11 +53,11 @@ onUnmounted(() => {
 
         <!-- Desktop Navigation -->
         <div class="lg:flex hidden gap-[3.575em] text-[1.375em] font-atyp-display font-medium">
-          <a href="/#about">About</a>
-          <a href="/#highlightedProjects">Highlighted Projects</a>
-          <a href="/#individualProjects">Individual Projects</a>
+          <a href="/PorfolioWebsite/#about">About</a>
+          <a href="/PortfolioWebsite/#highlightedProjects">Highlighted Projects</a>
+          <a href="/PortfolioWebsite/#individualProjects">Individual Projects</a>
           <a href="#">Resume</a>
-          <a href="/#contact">Contact</a>
+          <a href="/PortfolioWebsite/#contact">Contact</a>
         </div>
 
         <!-- Mobile Menu Button -->
