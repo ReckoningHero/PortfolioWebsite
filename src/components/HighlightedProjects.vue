@@ -65,8 +65,8 @@
                     </div>
 
                     <div>
-                        <h5 class="font-semibold lg:text-[1.56em] text-[24px] text-[#CCF303] mb-[6px]">CyberWar (Third Person Shooter)</h5>
-                        <p class="font-medium lg:text-[1.125em] text-[18px] text-[#6B767F]">Individual Project</p>
+                        <h5 class="font-semibold lg:text-[1.56em] text-[24px] text-[#CCF303] mb-[6px]">INFOVISIONVERSE: CONNECTING PEOPLE AND TECH IN VR</h5>
+                        <p class="font-medium lg:text-[1.125em] text-[18px] text-[#6B767F]">Group Project</p>
                     </div>
                 </div>
                 
@@ -117,12 +117,20 @@
             <div class="font-atyp-display flex flex-col items-start gap-[24px]">
                 <div class="flex flex-col gap-[18px]">
                     <div class="w-full h-[309px] overflow-hidden rounded-[13px]">
-                        <img class="w-full h-full object-cover object-center" src="../assets/images/ProjectUnreal.png" alt="Project 1">
+                        <video 
+                            class="w-full h-full object-cover object-center" 
+                            autoplay 
+                            loop 
+                            muted 
+                            playsinline
+                        >
+                            <source src="../assets/videos/project-infovisionverse-vr-outstands-the-boundary-for-wor_1700864884999.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
-
                     <div>
-                        <h5 class="font-semibold lg:text-[1.56em] text-[24px] text-[#CCF303] mb-[6px]">CyberWar (Third Person Shooter)</h5>
-                        <p class="font-medium lg:text-[1.125em] text-[18px] text-[#6B767F]">Individual Project</p>
+                        <h5 class="font-semibold lg:text-[1.56em] text-[24px] text-[#CCF303] mb-[6px]">INFOVISIONVERSE: CONNECTING PEOPLE AND TECH IN VR</h5>
+                        <p class="font-medium lg:text-[1.125em] text-[18px] text-[#6B767F]">Group Project</p>
                     </div>
                 </div>
                 
@@ -132,14 +140,14 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
                             <path fill="#CCF303" d="M10 0C4.486 0 0 4.486 0 10s4.486 10 10 10 10-4.486 10-10S15.514 0 10 0ZM8.001 14.413l-3.713-3.705L5.7 9.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706Z"/>
                         </svg>
-                        <p class="lg:text-[1.125em] text-[18px]">Finite state machine in C++</p>
+                        <p class="lg:text-[1.125em] text-[18px]">Finite state machine in C#</p>
                     </div>
                     
                     <div class="flex items-center gap-[14px]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
                             <path fill="#CCF303" d="M10 0C4.486 0 0 4.486 0 10s4.486 10 10 10 10-4.486 10-10S15.514 0 10 0ZM8.001 14.413l-3.713-3.705L5.7 9.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706Z"/>
                         </svg>
-                        <p class="lg:text-[1.125em] text-[18px]">Melee + range combat system</p>
+                        <p class="lg:text-[1.125em] text-[18px]">VR Melee + range grab system</p>
                     </div>
                     <div class="flex items-center gap-[14px]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
@@ -151,19 +159,19 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
                             <path fill="#CCF303" d="M10 0C4.486 0 0 4.486 0 10s4.486 10 10 10 10-4.486 10-10S15.514 0 10 0ZM8.001 14.413l-3.713-3.705L5.7 9.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706Z"/>
                         </svg>
-                        <p class="lg:text-[1.125em] text-[18px]">UE4 build for Xbox One</p>
+                        <p class="lg:text-[1.125em] text-[18px]">Unity3D build for Oculus Quest 2</p>
                     </div>
                     <div class="flex items-center gap-[14px]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
                             <path fill="#CCF303" d="M10 0C4.486 0 0 4.486 0 10s4.486 10 10 10 10-4.486 10-10S15.514 0 10 0ZM8.001 14.413l-3.713-3.705L5.7 9.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706Z"/>
                         </svg>
-                        <p class="lg:text-[1.125em] text-[18px]">Custom projectile ‘batching’</p>
+                        <p class="lg:text-[1.125em] text-[18px]">Custom points ‘batching’</p>
                     </div>
                     <div class="flex items-center gap-[14px]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
                             <path fill="#CCF303" d="M10 0C4.486 0 0 4.486 0 10s4.486 10 10 10 10-4.486 10-10S15.514 0 10 0ZM8.001 14.413l-3.713-3.705L5.7 9.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706Z"/>
                         </svg>
-                        <p class="lg:text-[1.125em] text-[18px]">Two-pass shader using stencil buffer</p>
+                        <p class="lg:text-[1.125em] text-[18px]">Custom Locomotion/Hand Tracking</p>
                     </div>
                 </div>
 
