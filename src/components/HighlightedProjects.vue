@@ -65,8 +65,8 @@
                     </div>
 
                     <div>
-                        <h5 class="font-semibold lg:text-[1.56em] text-[24px] text-[#CCF303] mb-[6px]">INFOVISIONVERSE: CONNECTING PEOPLE AND TECH IN VR</h5>
-                        <p class="font-medium lg:text-[1.125em] text-[18px] text-[#6B767F]">Group Project</p>
+                        <h5 class="font-semibold lg:text-[1.56em] text-[24px] text-[#CCF303] mb-[6px]">Escape from Worlds (Multiplayer AI Game)</h5>
+                        <p class="font-medium lg:text-[1.125em] text-[18px] text-[#6B767F]">Individual Project</p>
                     </div>
                 </div>
                 
