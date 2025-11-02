@@ -56,6 +56,7 @@ onUnmounted(() => {
           <a href="/PortfolioWebsite/#about">About</a>
           <a href="/PortfolioWebsite/#highlightedProjects">Highlighted Projects</a>
           <a href="/PortfolioWebsite/#individualProjects">Individual Projects</a>
+          <a href="/PortfolioWebsite/#shippedGames">Shipped Games</a>
           <router-link to="/blog">Blog</router-link>
           <a href="#">Resume</a>
           <a href="/PortfolioWebsite/#contact">Contact</a>
@@ -94,6 +95,7 @@ onUnmounted(() => {
           <a href="/#about" @click="closeSidebar">About</a>
           <a href="/#highlightedProjects" @click="closeSidebar">Highlighted Projects</a>
           <a href="/#individualProjects" @click="closeSidebar">Individual Projects</a>
+          <a href="/#shippedGames" @click="closeSidebar">Shipped Games</a>
           <router-link to="/blog" @click="closeSidebar">Blog</router-link>
           <a href="#" @click="closeSidebar">Resume</a>
         </div>

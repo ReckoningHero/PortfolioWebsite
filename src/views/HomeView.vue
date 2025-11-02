@@ -5,7 +5,7 @@ import Hero from '../components/Hero.vue';
 import About from '../components/About.vue';
 import HighlightedProjects from '../components/HighlightedProjects.vue';
 import IndividualProjects from '../components/IndividualProjects.vue';
-import TeamProjects from '../components/TeamProjects.vue';
+import ShippedGames from '../components/ShippedGames.vue';
 import Contact from '../components/Contact.vue';
 import Footer from '../components/Footer.vue';
 
@@ -28,7 +28,7 @@ onMounted(() => {
     <About />
     <HighlightedProjects />
     <IndividualProjects />
-    <TeamProjects />
+    <ShippedGames />
     <Contact />
   </div>
 </template>

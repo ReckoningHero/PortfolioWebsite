@@ -40,6 +40,7 @@ const router = createRouter({
       name: 'xbox-development',
       component: () => import('../views/blog/XboxDevelopment.vue'),
     },
+
   ],
   scrollBehavior(to, from, savedPosition) {
     if (to.hash) {
