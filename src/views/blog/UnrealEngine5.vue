@@ -113,7 +113,7 @@ import Footer from '../../components/Footer.vue';
           </p>
           
           <div class="pt-[30px]">
-            <router-link to="/blog" class="text-[#CCF303] hover:underline">← Back to Blog</router-link>
+            <router-link :to="{ path: '/', hash: '#blog' }" class="text-[#CCF303] hover:underline">← Back to Blog</router-link>
           </div>
         </div>
       </div>
