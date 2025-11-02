@@ -15,6 +15,31 @@ const router = createRouter({
       name: 'cyberwar',
       component: CyberWar,
     },
+    {
+      path: '/blog',
+      name: 'blog',
+      component: () => import('../views/BlogView.vue'),
+    },
+    {
+      path: '/blog/optimizing-game-performance',
+      name: 'optimizing-game-performance',
+      component: () => import('../views/blog/OptimizingGamePerformance.vue'),
+    },
+    {
+      path: '/blog/unreal-engine-5',
+      name: 'unreal-engine-5',
+      component: () => import('../views/blog/UnrealEngine5.vue'),
+    },
+    {
+      path: '/blog/character-animations',
+      name: 'character-animations',
+      component: () => import('../views/blog/CharacterAnimations.vue'),
+    },
+    {
+      path: '/blog/xbox-development',
+      name: 'xbox-development',
+      component: () => import('../views/blog/XboxDevelopment.vue'),
+    },
   ],
   scrollBehavior(to, from, savedPosition) {
     if (to.hash) {
