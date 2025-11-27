@@ -6,7 +6,7 @@ import About from '../components/About.vue';
 import HighlightedProjects from '../components/HighlightedProjects.vue';
 import IndividualProjects from '../components/IndividualProjects.vue';
 import ShippedGames from '../components/ShippedGames.vue';
-import Blog from '../components/Blog.vue';
+import Blog from '../components/Blog.vue';    
 import Contact from '../components/Contact.vue';
 import Footer from '../components/Footer.vue';
 
@@ -31,6 +31,7 @@ onMounted(() => {
     <IndividualProjects />
     <ShippedGames />
     <Blog />
+    <LinkedIn />
     <Contact />
   </div>
 </template>

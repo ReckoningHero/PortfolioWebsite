@@ -20,7 +20,7 @@ import Footer from '../../components/Footer.vue';
         
         <!-- Featured image -->
         <div class="w-full h-[400px] overflow-hidden rounded-[1.375em] mb-[40px]">
-          <img class="w-full h-full object-cover object-center" src="../../assets/images/ProjectUnreal.png" alt="Game Performance Optimization">
+          <img class="w-full h-full object-cover object-center" src="../../assets/images/Optimizing-Performance-in-Browser-Based-Game-Development.jpg" alt="Game Performance Optimization">
         </div>
         
         <!-- Blog content -->

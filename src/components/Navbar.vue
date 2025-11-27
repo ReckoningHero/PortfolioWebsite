@@ -97,6 +97,7 @@ onUnmounted(() => {
           <a href="/#individualProjects" @click="closeSidebar">Individual Projects</a>
           <a href="/#shippedGames" @click="closeSidebar">Shipped Games</a>
           <a href="/#blog" @click="closeSidebar">Blog</a>
+          <a href="/#linkedin" @click="closeSidebar">LinkedIn</a>
           <a href="#" @click="closeSidebar">Resume</a>
         </div>
         <div class="flex">
