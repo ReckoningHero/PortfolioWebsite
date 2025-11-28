@@ -27,9 +27,9 @@ onMounted(() => {
   <div ref="containerRef">
     <Hero />
     <About />
+    <ShippedGames />
     <HighlightedProjects />
     <IndividualProjects />
-    <ShippedGames />
     <Blog />
     <LinkedIn />
     <Contact />

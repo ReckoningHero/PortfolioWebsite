@@ -1,5 +1,9 @@
 <script setup>
 import { ref, computed } from 'vue'
+// Import the performance blog image as a module so Vite resolves it reliably
+import perfImage from '../assets/images/Optimizing-Performance-in-Browser-Based-Game-Development.jpg'
+// Import networking image for the UE5 networking article
+import ue5NetImage from '../assets/images/fix-unnecessary-rpc.webp'
 
 // NOTE: Using 2 posts per page so Previous/Next is meaningful with the current 4 posts.
 // Adjust `pageSize` to 4 later if you prefer showing a full grid at once.
@@ -10,10 +14,10 @@ const posts = ref([
   {
     slug: 'unreal-engine-5',
     date: 'June 15, 2024',
-    title: 'Getting Started with Unreal Engine 5',
+    title: 'Getting Started with Networking in Unreal Engine 5',
     excerpt:
-      'Exploring the new features of Unreal Engine 5 and how they can revolutionize your game development workflow.',
-    image: '../assets/images/ProjectUnreal.png',
+      'A practical intro to UE5 networking: replication, RPCs, authority/ownership, movement, and common pitfalls.',
+    image: ue5NetImage,
     to: '/blog/unreal-engine-5',
   },
   {
@@ -22,7 +26,7 @@ const posts = ref([
     title: 'Optimizing Game Performance',
     excerpt:
       "Tips and tricks for improving your game's performance across different platforms and hardware configurations.",
-    image: '../assets/images/Optimizing-Performance-in-Browser-Based-Game-Development.jpg',
+    image: perfImage,
     to: '/blog/optimizing-game-performance',
   },
   {
