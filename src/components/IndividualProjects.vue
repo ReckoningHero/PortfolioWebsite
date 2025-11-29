@@ -72,7 +72,7 @@
                     </div>
                 </div>
 
-                <a href="/PortfolioWebsite/projects/two-worlds" class="hover:bg-[#CCF303] hover:text-black transition-all border border-[#CCF303] px-[23px] py-[12px] lg:text-[1.1875em] text-[16px] text-[#CCF303] font-atyp-display font-medium">Read more</a>
+                <router-link to="/projects/two-worlds" class="hover:bg-[#CCF303] hover:text-black transition-all border border-[#CCF303] px-[23px] py-[12px] lg:text-[1.1875em] text-[16px] text-[#CCF303] font-atyp-display font-medium">Read more</router-link>
             </div>
 
             <div class="font-atyp-display flex flex-col items-start gap-[24px]">
@@ -128,7 +128,7 @@
                     </div>
                 </div>
 
-                <a href="/projects" class="hover:bg-[#CCF303] hover:text-black transition-all border border-[#CCF303] px-[23px] py-[12px] lg:text-[1.1875em] text-[16px] text-[#CCF303] font-atyp-display font-medium">Read more</a>
+                <router-link to="/projects/cyberwar" class="hover:bg-[#CCF303] hover:text-black transition-all border border-[#CCF303] px-[23px] py-[12px] lg:text-[1.1875em] text-[16px] text-[#CCF303] font-atyp-display font-medium">Read more</router-link>
             </div>
 
             <div class="font-atyp-display flex flex-col items-start gap-[24px]">
@@ -413,6 +413,13 @@
         </div>
     </div>
 </template>
+
+<style scoped>
+/* Hide all project cards after the first two */
+#individualProjects .grid > div:nth-child(n+3) {
+  display: none;
+}
+</style>
 
 <script setup>
 // Import Two Worlds video so Vite resolves and bundles it correctly

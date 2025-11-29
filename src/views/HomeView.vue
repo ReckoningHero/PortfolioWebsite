@@ -10,6 +10,7 @@ import Blog from '../components/Blog.vue';
 import Contact from '../components/Contact.vue';
 import Footer from '../components/Footer.vue';
 import VideoBackground from '../components/VideoBackground.vue';
+import AnimatedBackground from '../components/AnimatedBackground.vue';
 
 const containerRef = ref(null);
 
@@ -25,16 +26,22 @@ onMounted(() => {
 </script>
 
 <template>
-  <div ref="containerRef" class="relative z-10">
+  <div ref="containerRef" class="relative">
     <!-- Animated background video (Home page only) -->
     <VideoBackground overlay="medium" />
     <Hero />
     <About />
-    <ShippedGames />
-    <HighlightedProjects />
-    <IndividualProjects />
-    <Blog />
-    <LinkedIn />
-    <Contact />
+    <!-- Scope the animated background to everything below About -->
+    <section class="relative">
+      <AnimatedBackground />
+      <div class="relative z-10">
+        <ShippedGames />
+        <HighlightedProjects />
+        <IndividualProjects />
+        <Blog />
+        <LinkedIn />
+        <Contact />
+      </div>
+    </section>
   </div>
 </template>
