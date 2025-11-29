@@ -9,6 +9,7 @@ import ShippedGames from '../components/ShippedGames.vue';
 import Blog from '../components/Blog.vue';    
 import Contact from '../components/Contact.vue';
 import Footer from '../components/Footer.vue';
+import VideoBackground from '../components/VideoBackground.vue';
 
 const containerRef = ref(null);
 
@@ -24,7 +25,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <div ref="containerRef">
+  <div ref="containerRef" class="relative z-10">
+    <!-- Animated background video (Home page only) -->
+    <VideoBackground overlay="medium" />
     <Hero />
     <About />
     <ShippedGames />

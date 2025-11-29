@@ -16,6 +16,11 @@ const router = createRouter({
       component: CyberWar,
     },
     {
+      path: '/projects/two-worlds',
+      name: 'two-worlds',
+      component: () => import('../views/projects/TwoWorlds.vue'),
+    },
+    {
       path: '/blog',
       name: 'blog',
       component: () => import('../views/BlogView.vue'),
