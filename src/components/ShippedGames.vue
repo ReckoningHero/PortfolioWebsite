@@ -47,6 +47,14 @@
     <!-- Previous / Next controls (match Blog styling) -->
     <div class="flex items-center justify-center gap-4 mt-[40px] font-atyp-display">
       <button
+        @click="togglePause"
+        :aria-pressed="isPaused"
+        class="px-4 py-2 rounded border border-[#2A3540] text-white hover:border-[#CCF303] transition"
+        :aria-label="isPaused ? 'Resume auto-slide' : 'Pause auto-slide'"
+      >
+        {{ isPaused ? 'Resume' : 'Pause' }}
+      </button>
+      <button
         @click="prevPage"
         :disabled="currentPage === 1"
         class="px-4 py-2 rounded border border-[#2A3540] text-white disabled:opacity-40 hover:border-[#CCF303] transition"
@@ -79,6 +87,7 @@ const pageSize = 3
 const currentPage = ref(1)
 const slideDirection = ref('left') // 'left' or 'right' for animation
 const slideClass = computed(() => (slideDirection.value === 'left' ? 'slide-left' : 'slide-right'))
+const isPaused = ref(false)
 
 const games = ref([
   {
@@ -146,13 +155,19 @@ function nextPage() {
   else currentPage.value = 1
 }
 
+function togglePause() {
+  isPaused.value = !isPaused.value
+}
+
 // Auto-slide every 3 seconds
 const intervalMs = 3000
 let autoTimer = null
 
 onMounted(() => {
   autoTimer = setInterval(() => {
-    nextPage()
+    if (!isPaused.value) {
+      nextPage()
+    }
   }, intervalMs)
 })
 
