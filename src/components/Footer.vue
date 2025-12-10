@@ -1,7 +1,7 @@
 <template>
     <div class="container mx-auto lg:px-[5em] px-[9em] mt-[59px]">
         <div class="flex lg:flex-row flex-col lg:gap-0 gap-20 items-center justify-between border-t border-[#FFFFFF12] py-[34px]">
-            <h6 class="font-atyp-display font-medium lg:text-[1em] text-[16px] text-[#6B767F] text-center">Copyright © 2024. All rights reserved. Developed by Webeeno Studio</h6>
+<h6 class="font-atyp-display font-medium lg:text-[1em] text-[16px] text-[#6B767F] text-center">Copyright © 2026. All rights reserved. Developed by Webeeno Studio</h6>
             <div class="flex gap-[15px]">
                 <a href="https://github.com/ReckoningHero" target="_blank" rel="noopener noreferrer" aria-label="GitHub: ReckoningHero (opens in new tab)" title="GitHub: ReckoningHero" class="w-[40px] h-[40px] bg-[#1C2227] text-white flex justify-center items-center rounded-[8px]">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
