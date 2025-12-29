@@ -24,8 +24,9 @@
       </button>
     </div>
 
-    <!-- Featured hero slider (front-facing, large tiles with side peek) -->
+    <!-- Featured hero slider (disabled per request) -->
     <div
+      v-if="ENABLE_HERO"
       ref="heroContainerRef"
       class="relative mt-[40px] rounded-[16px] overflow-hidden ring-1 ring-[#FFFFFF12] bg-[#0B1217]"
       style="perspective: 1000px"
@@ -169,6 +170,9 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import horizonLogo from '../assets/images/horizonworldslogo_1024x1024.jpg'
 import ghostsOfTaborImg from '../assets/images/tried-to-make-some-wallpapers-use-them-if-u-like-v0-tc8cs7ajy0qd1.png'
 
+// Toggle to enable/disable the hero hover/slide section
+const ENABLE_HERO = false
+
 const games = ref([
   {
     slug: 'cyber-assault',
@@ -255,11 +259,13 @@ function resetHeroTilt() {
 }
 
 onMounted(() => {
-  heroTimer = setInterval(() => {
-    if (!isHeroPaused.value) {
-      nextHero()
-    }
-  }, heroIntervalMs)
+  if (ENABLE_HERO) {
+    heroTimer = setInterval(() => {
+      if (!isHeroPaused.value) {
+        nextHero()
+      }
+    }, heroIntervalMs)
+  }
 })
 onBeforeUnmount(() => {
   if (heroTimer) clearInterval(heroTimer)

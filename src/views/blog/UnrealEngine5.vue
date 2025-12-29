@@ -1,6 +1,5 @@
 <script setup>
 import Navbar from '../../components/Navbar.vue';
-import Footer from '../../components/Footer.vue';
 // Use the networking-focused image you provided
 import ue5NetImage from '../../assets/images/fix-unnecessary-rpc.webp'
 </script>
@@ -140,6 +139,5 @@ IOnlineSessionPtr Sessions = OSS ? OSS-&gt;GetSessionInterface() : nullptr;
       </div>
     </div>
     
-    <Footer />
   </div>
 </template>

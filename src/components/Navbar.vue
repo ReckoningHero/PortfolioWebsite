@@ -58,6 +58,7 @@ onUnmounted(() => {
           <a href="/PortfolioWebsite/#individualProjects">Individual Projects</a>
           <a href="/PortfolioWebsite/#shippedGames">Shipped Games</a>
           <a href="/PortfolioWebsite/#blog">Blog</a>
+          <router-link to="/cpp-ide">C++ IDE</router-link>
           <a href="#">Resume</a>
           <a href="/PortfolioWebsite/#contact">Contact</a>
         </div>
@@ -97,6 +98,7 @@ onUnmounted(() => {
           <a href="/#individualProjects" @click="closeSidebar">Individual Projects</a>
           <a href="/#shippedGames" @click="closeSidebar">Shipped Games</a>
           <a href="/#blog" @click="closeSidebar">Blog</a>
+          <router-link to="/cpp-ide" @click="closeSidebar">C++ IDE</router-link>
           <a href="/#linkedin" @click="closeSidebar">LinkedIn</a>
           <a href="#" @click="closeSidebar">Resume</a>
         </div>

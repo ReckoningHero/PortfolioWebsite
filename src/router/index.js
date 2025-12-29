@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import CyberWar from '../views/projects/CyberWar.vue'
+// Lazy-load the C++ IDE view
+const CppIDE = () => import('../views/CppIDE.vue')
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -9,6 +11,11 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
+    },
+    {
+      path: '/cpp-ide',
+      name: 'cpp-ide',
+      component: CppIDE,
     },
     {
       path: '/projects/cyberwar',
