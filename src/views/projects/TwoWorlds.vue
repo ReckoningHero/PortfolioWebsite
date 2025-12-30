@@ -1,6 +1,5 @@
 <script setup>
 import Navbar from '../../components/Navbar.vue'
-import Footer from '../../components/Footer.vue'
 // Use the local project video as hero media
 import twoWorldsVideo from '../../assets/videos/Two_Worlds.mp4'
 </script>
@@ -191,7 +190,6 @@ import twoWorldsVideo from '../../assets/videos/Two_Worlds.mp4'
       </div>
     </div>
 
-    <Footer />
   </div>
 </template>
 
