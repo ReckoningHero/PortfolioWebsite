@@ -2,7 +2,7 @@
   <div id="shippedGames" class="container mx-auto lg:px-[5em] px-[9em]">
     <hr class="border border-[#FFFFFF12] my-[50px]" />
     <h3 class="uppercase font-atyp-display font-semibold lg:text-[4em] text-[40px] text-center">
-      Shipped <span class="text-[#CCF303]">Games</span>
+      <span class="text-[#CCF303]">Titles</span>
     </h3>
 
     <!-- Category filters (match Iron Galaxy taxonomy) -->

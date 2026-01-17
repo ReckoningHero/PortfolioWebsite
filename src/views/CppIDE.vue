@@ -1,5 +1,6 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue'
+import HoverTabs from '@/components/common/HoverTabs.vue'
 
 const code = ref(`#include <iostream>
 int main() {
@@ -116,14 +117,185 @@ function deleteComment(id) {
     persistComments()
   }
 }
+
+// ----- Tabs for C++ IDE sections -----
+const ideTabs = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'features', label: 'Features' },
+  { id: 'examples', label: 'Examples' },
+  { id: 'howto', label: 'How to Run' },
+  { id: 'roadmap', label: 'Roadmap' },
+]
+// ----- Animated expanding panels (for the tab sections) -----
+const currentTabId = ref('overview')
+const panelContainer = ref(null)
+const panelHeight = ref('auto')
+
+function measureActivePanelHeight() {
+  nextTick(() => {
+    const wrap = panelContainer.value
+    if (!wrap) return
+    // Select the currently active panel by id
+    const active = wrap.querySelector(`#panel-${currentTabId.value}`)
+    if (!active) return
+    // Temporarily ensure it's measurable (v-show keeps it display:block only when active)
+    // If somehow not visible yet, schedule another tick
+    const h = active.scrollHeight
+    if (h > 0) {
+      panelHeight.value = `${h}px`
+    } else {
+      // try again next frame
+      requestAnimationFrame(() => {
+        const h2 = active.scrollHeight
+        if (h2 > 0) panelHeight.value = `${h2}px`
+      })
+    }
+  })
+}
+
+function onTabChange(id) {
+  currentTabId.value = id
+  measureActivePanelHeight()
+}
+
+function onResize() {
+  measureActivePanelHeight()
+}
+
+onMounted(() => {
+  // Initialize height after mount
+  measureActivePanelHeight()
+  window.addEventListener('resize', onResize)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', onResize)
+})
 </script>
 
 <template>
   <div class="container mx-auto lg:px-[5em] px-[2em] py-10">
-    <h1 class="text-[28px] lg:text-[36px] font-atyp-display font-medium mb-6">C++ IDE (Online Compiler)</h1>
-    <p class="text-white/70 mb-8">Write and run C++ directly in your browser. This uses the public Piston execution API. Avoid sensitive code; execution is sandboxed and time-limited.</p>
+    <h1 class="text-[28px] lg:text-[36px] font-atyp-display font-medium mb-3">C++ IDE (Online Compiler)</h1>
+    <p class="text-white/70 mb-6">Write and run C++ directly in your browser. This uses the public Piston execution API. Avoid sensitive code; execution is sandboxed and time-limited.</p>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <!-- Hover Tabs like the reference site -->
+    <HoverTabs :tabs="ideTabs" initial-id="overview" @change="onTabChange">
+      <template #default="{ activeId }">
+        <!-- Animated height wrapper to create a smooth 'drag down' expansion -->
+        <div
+          ref="panelContainer"
+          class="overflow-hidden transition-[height] duration-300 ease-out"
+          :style="{ height: panelHeight }"
+        >
+        <section
+          :id="`panel-${'overview'}`"
+          role="tabpanel"
+          :aria-labelledby="`tab-${'overview'}`"
+          v-show="activeId === 'overview'"
+          class="rounded-md border border-white/10 bg-[#0b1520] p-5"
+        >
+          <h2 class="text-[20px] lg:text-[22px] font-atyp-display font-medium mb-2 text-[#CCF303]">Overview</h2>
+          <p class="text-white/80">This page lets you edit and execute small C++ programs without setting up a local toolchain. It’s powered by the open Piston API and runs your code in a sandbox with limited resources. Great for quick tests, learning, or sharing snippets.</p>
+          <p class="text-white/60 mt-2">Hover the tabs above to preview different sections. The container will smoothly expand to fit the content, pushing the layout down like the example site.</p>
+        </section>
+
+        <section
+          :id="`panel-${'features'}`"
+          role="tabpanel"
+          :aria-labelledby="`tab-${'features'}`"
+          v-show="activeId === 'features'"
+          class="rounded-md border border-white/10 bg-[#0b1520] p-5"
+        >
+          <h2 class="text-[20px] lg:text-[22px] font-atyp-display font-medium mb-2 text-[#CCF303]">Features</h2>
+          <ul class="list-disc pl-5 space-y-1 text-white/80">
+            <li>Run C++ code with optional stdin input</li>
+            <li>Shows stdout, stderr, and compile errors separately</li>
+            <li>Latest available runtime auto-detected</li>
+            <li>Local-only comments section (saved to your device)</li>
+          </ul>
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-3 mt-4">
+            <div class="bg-[#081019] border border-white/10 rounded p-3">
+              <div class="text-[#CCF303] font-atyp-display mb-1">Quick Run</div>
+              <p class="text-white/70 text-sm">Execute small snippets instantly.</p>
+            </div>
+            <div class="bg-[#081019] border border-white/10 rounded p-3">
+              <div class="text-[#CCF303] font-atyp-display mb-1">Inputs</div>
+              <p class="text-white/70 text-sm">Provide stdin for interactive programs.</p>
+            </div>
+            <div class="bg-[#081019] border border-white/10 rounded p-3">
+              <div class="text-[#CCF303] font-atyp-display mb-1">Outputs</div>
+              <p class="text-white/70 text-sm">View stdout, stderr and compile logs.</p>
+            </div>
+          </div>
+        </section>
+
+        <section
+          :id="`panel-${'examples'}`"
+          role="tabpanel"
+          :aria-labelledby="`tab-${'examples'}`"
+          v-show="activeId === 'examples'"
+          class="rounded-md border border-white/10 bg-[#0b1520] p-5"
+        >
+          <h2 class="text-[20px] lg:text-[22px] font-atyp-display font-medium mb-3 text-[#CCF303]">Examples</h2>
+          <div class="space-y-4 text-white/80">
+            <div>
+              <div class="font-atyp-display font-medium mb-1">Echo stdin</div>
+              <pre class="bg-[#081019] border border-white/10 rounded p-3 text-sm overflow-x-auto" v-pre><code>#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    string s; getline(cin, s);
+    cout &lt;&lt; "You typed: " &lt;&lt; s &lt;&lt; "\n";
+}</code></pre>
+            </div>
+            <div>
+              <div class="font-atyp-display font-medium mb-1">Loop and sum</div>
+              <pre class="bg-[#081019] border border-white/10 rounded p-3 text-sm overflow-x-auto" v-pre><code>#include &lt;bits/stdc++.h&gt;
+using namespace std;
+int main(){
+    long long n, x, sum=0; cin&gt;&gt;n; while(n-- &amp;&amp; cin&gt;&gt;x) sum+=x; cout&lt;&lt;sum&lt;&lt;"\n";
+}</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section
+          :id="`panel-${'howto'}`"
+          role="tabpanel"
+          :aria-labelledby="`tab-${'howto'}`"
+          v-show="activeId === 'howto'"
+          class="rounded-md border border-white/10 bg-[#0b1520] p-5"
+        >
+          <h2 class="text-[20px] lg:text-[22px] font-atyp-display font-medium mb-2 text-[#CCF303]">How to run</h2>
+          <ol class="list-decimal pl-5 space-y-1 text-white/80">
+            <li>Write or paste your code in the editor below.</li>
+            <li>Optionally add input in the “Standard Input (stdin)” box.</li>
+            <li>Click Run. Output appears on the right.</li>
+          </ol>
+          <p class="text-white/60 mt-2 text-sm">Note: Execution time and memory are limited. Avoid long-running programs.</p>
+          <div class="mt-4 bg-[#081019] border border-white/10 rounded p-3 text-white/70 text-sm">
+            Tip: Try the "Echo stdin" example above, type something into the stdin box, then hit Run.
+          </div>
+        </section>
+
+        <section
+          :id="`panel-${'roadmap'}`"
+          role="tabpanel"
+          :aria-labelledby="`tab-${'roadmap'}`"
+          v-show="activeId === 'roadmap'"
+          class="rounded-md border border-white/10 bg-[#0b1520] p-5"
+        >
+          <h2 class="text-[20px] lg:text-[22px] font-atyp-display font-medium mb-2 text-[#CCF303]">Roadmap</h2>
+          <ul class="list-disc pl-5 space-y-1 text-white/80">
+            <li>Syntax highlighting and basic lint hints</li>
+            <li>Save/share gists of code snippets</li>
+            <li>Multiple files support</li>
+          </ul>
+        </section>
+        </div>
+      </template>
+    </HoverTabs>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
       <div>
         <label class="block text-sm uppercase tracking-wide text-white/60 mb-2">Code (main.cpp)</label>
         <textarea v-model="code" class="w-full h-[360px] rounded-md bg-[#0b1520] text-white p-4 font-mono text-sm outline-none border border-white/10 focus:border-[#CCF303]" spellcheck="false"></textarea>

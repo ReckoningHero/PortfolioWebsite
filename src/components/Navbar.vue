@@ -53,14 +53,13 @@ onUnmounted(() => {
 
         <!-- Desktop Navigation -->
         <div class="lg:flex hidden gap-[3.575em] text-[1.375em] font-atyp-display font-medium">
-          <a href="/PortfolioWebsite/#about">About</a>
-          <a href="/PortfolioWebsite/#highlightedProjects">Highlighted Projects</a>
-          <a href="/PortfolioWebsite/#individualProjects">Individual Projects</a>
-          <a href="/PortfolioWebsite/#shippedGames">Shipped Games</a>
-          <a href="/PortfolioWebsite/#blog">Blog</a>
-          <router-link to="/cpp-ide">C++ IDE</router-link>
-          <a href="#">Resume</a>
-          <a href="/PortfolioWebsite/#contact">Contact</a>
+          <a class="transition-colors hover:text-[#CCF303]" href="/PortfolioWebsite/#about">About</a>
+          <a class="transition-colors hover:text-[#CCF303]" href="/PortfolioWebsite/#highlightedProjects">Projects</a>
+          <a class="transition-colors hover:text-[#CCF303]" href="/PortfolioWebsite/#shippedGames">Titles</a>
+          <a class="transition-colors hover:text-[#CCF303]" href="/PortfolioWebsite/#blog">Blog</a>
+          <a class="transition-colors hover:text-[#CCF303]" href="/cpp-ide">C++ IDE</a>
+          <router-link class="transition-colors hover:text-[#CCF303]" to="/resume">Resume</router-link>
+          <a class="transition-colors hover:text-[#CCF303]" href="/PortfolioWebsite/#contact">Contact</a>
         </div>
 
         <!-- Mobile Menu Button -->
@@ -93,14 +92,12 @@ onUnmounted(() => {
 
         <!-- Navigation Links -->
         <div class="flex flex-col mt-20 font-atyp-display font-medium gap-[0.775em] text-[20px] mb-32">
-          <a href="/#about" @click="closeSidebar">About</a>
-          <a href="/#highlightedProjects" @click="closeSidebar">Highlighted Projects</a>
-          <a href="/#individualProjects" @click="closeSidebar">Individual Projects</a>
-          <a href="/#shippedGames" @click="closeSidebar">Shipped Games</a>
-          <a href="/#blog" @click="closeSidebar">Blog</a>
-          <router-link to="/cpp-ide" @click="closeSidebar">C++ IDE</router-link>
-          <a href="/#linkedin" @click="closeSidebar">LinkedIn</a>
-          <a href="#" @click="closeSidebar">Resume</a>
+          <a class="transition-colors hover:text-[#CCF303]" href="/#about" @click="closeSidebar">About</a>
+          <a class="transition-colors hover:text-[#CCF303]" href="/#highlightedProjects" @click="closeSidebar">Projects</a>
+          <a class="transition-colors hover:text-[#CCF303]" href="/#shippedGames" @click="closeSidebar">Titles</a>
+          <a class="transition-colors hover:text-[#CCF303]" href="/#blog" @click="closeSidebar">Blog</a>
+          <router-link class="transition-colors hover:text-[#CCF303]" to="/cpp-ide" @click="closeSidebar">C++ IDE</router-link>
+          <router-link class="transition-colors hover:text-[#CCF303]" to="/resume" @click="closeSidebar">Resume</router-link>
         </div>
         <div class="flex">
           <a href="/#contact" @click="closeSidebar" class="w-full text-center bg-[#CCF303] px-[23px] py-[15px] uppercase lg:text-[1.375em] text-[16px] text-black font-atyp-display font-medium">Let's have a chat</a>

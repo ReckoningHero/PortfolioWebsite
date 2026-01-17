@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import CyberWar from '../views/projects/CyberWar.vue'
 // Lazy-load the C++ IDE view
 const CppIDE = () => import('../views/CppIDE.vue')
+const ResumeView = () => import('../views/ResumeView.vue')
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -51,6 +52,11 @@ const router = createRouter({
       path: '/blog/xbox-development',
       name: 'xbox-development',
       component: () => import('../views/blog/XboxDevelopment.vue'),
+    },
+    {
+      path: '/resume',
+      name: 'resume',
+      component: ResumeView,
     },
 
   ],
