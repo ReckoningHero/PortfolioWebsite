@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, watch, nextTick } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -90,21 +90,34 @@ const filteredProjects = computed(() => {
   return projects.filter(p => p.category === selectedCategory.value)
 })
 
+// Watch category changes to refresh ScrollTrigger
+watch(selectedCategory, () => {
+  nextTick(() => {
+    ScrollTrigger.refresh()
+  })
+})
+
 const projectsRef = ref(null)
 
 onMounted(() => {
   // Animation for project cards
-  gsap.from(".project-card", {
-    scrollTrigger: {
-      trigger: "#projects",
-      start: "top 80%",
-    },
-    opacity: 0,
-    y: 30,
-    duration: 0.8,
-    stagger: 0.2,
-    ease: "power2.out"
-  })
+  setTimeout(() => {
+    gsap.from(".project-card", {
+      scrollTrigger: {
+        trigger: "#projects",
+        start: "top 85%",
+        toggleActions: "play none none none"
+      },
+      opacity: 0,
+      y: 30,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: "power2.out",
+      clearProps: "all"
+    })
+    // Force ScrollTrigger refresh in case of layout shifts
+    ScrollTrigger.refresh()
+  }, 100)
 })
 </script>
 

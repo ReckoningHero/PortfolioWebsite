@@ -2,6 +2,7 @@
 import { RouterView } from 'vue-router'
 import Navbar from './components/Navbar.vue'
 import Footer from './components/Footer.vue'
+import AIChat from './components/AIChat.vue'
 
 import { useRoute } from "vue-router";
 import { onMounted, watch } from "vue";
@@ -25,6 +26,8 @@ watch(() => route.hash, scrollToAnchor);
   <Navbar />
 
   <RouterView />
+
+  <AIChat />
 
   <Footer />
 </template>

@@ -57,7 +57,7 @@ onUnmounted(() => {
           <a class="transition-colors hover:text-[#CCF303]" href="/PortfolioWebsite/#projects">Projects</a>
           <a class="transition-colors hover:text-[#CCF303]" href="/PortfolioWebsite/#shippedGames">Titles</a>
           <a class="transition-colors hover:text-[#CCF303]" href="/PortfolioWebsite/#blog">Blog</a>
-          <router-link class="transition-colors hover:text-[#CCF303]" to="/PortfolioWebsite/3d-models">3D Models</router-link>
+          <!-- <router-link class="transition-colors hover:text-[#CCF303]" to="/PortfolioWebsite/3d-models">3D Models</router-link> -->
           <router-link class="transition-colors hover:text-[#CCF303]" to="/PortfolioWebsite/cpp-ide">C++ IDE</router-link>
           <router-link class="transition-colors hover:text-[#CCF303]" to="/PortfolioWebsite/resume">Resume</router-link>
           <a class="transition-colors hover:text-[#CCF303]" href="/PortfolioWebsite/#contact">Contact</a>
@@ -97,7 +97,7 @@ onUnmounted(() => {
           <a class="transition-colors hover:text-[#CCF303]" href="/PortfolioWebsite/#projects" @click="closeSidebar">Projects</a>
           <a class="transition-colors hover:text-[#CCF303]" href="/PortfolioWebsite/#shippedGames" @click="closeSidebar">Titles</a>
           <a class="transition-colors hover:text-[#CCF303]" href="/PortfolioWebsite/#blog" @click="closeSidebar">Blog</a>
-          <router-link class="transition-colors hover:text-[#CCF303]" to="/PortfolioWebsite/3d-models" @click="closeSidebar">3D Models</router-link>
+          <!-- <router-link class="transition-colors hover:text-[#CCF303]" to="/PortfolioWebsite/3d-models" @click="closeSidebar">3D Models</router-link> -->
           <router-link class="transition-colors hover:text-[#CCF303]" to="/PortfolioWebsite/cpp-ide" @click="closeSidebar">C++ IDE</router-link>
           <router-link class="transition-colors hover:text-[#CCF303]" to="/PortfolioWebsite/resume" @click="closeSidebar">Resume</router-link>
         </div>

@@ -33,11 +33,13 @@ const router = createRouter({
       name: 'blog',
       component: () => import('../views/BlogView.vue'),
     },
+    /*
     {
       path: '/PortfolioWebsite/3d-models',
       name: '3d-models',
       component: () => import('../views/Models3DView.vue'),
     },
+    */
     {
       path: '/PortfolioWebsite/blog/optimizing-game-performance',
       name: 'optimizing-game-performance',
