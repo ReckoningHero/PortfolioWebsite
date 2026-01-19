@@ -28,7 +28,7 @@
             </p>
             <div class="flex gap-[21px] mt-[38px]">
                 <a href="/PortfolioWebsite/#contact" class="bg-[#CCF303] px-[23px] py-[15px] uppercase lg:text-[1.375em] text-[16px] text-black font-atyp-display font-medium shadow-[0_0_30px_#cbf30355] hover:shadow-[0_0_40px_#cbf30355] hover:translate-y-[-5px] transition-all">Let's have a chat</a>
-                <a href="/PortfolioWebsite/#highlightedProjects" class="hover:bg-[#CCF303] hover:text-black transition-all border border-[#CCF303] px-[23px] py-[15px] uppercase lg:text-[1.375em] text-[16px] text-[#CCF303] font-atyp-display font-medium">My projects</a>
+                <a href="/PortfolioWebsite/#projects" class="hover:bg-[#CCF303] hover:text-black transition-all border border-[#CCF303] px-[23px] py-[15px] uppercase lg:text-[1.375em] text-[16px] text-[#CCF303] font-atyp-display font-medium">My projects</a>
             </div>
         </div>
     </div>

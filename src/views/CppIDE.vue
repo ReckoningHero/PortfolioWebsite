@@ -28,8 +28,25 @@ async function resolveCppVersion() {
     // Piston may expose language id as 'cpp' or 'c++' depending on runtime
     const langs = runtimes.filter(r => r.language === 'cpp' || r.language === 'c++')
     if (langs.length) {
-      // Pick the last version (usually latest)
-      cppVersion.value = langs[0].version || (langs[0].versions ? langs[0].versions.slice(-1)[0] : null)
+      // Pick the highest version
+      const sorted = [...langs].sort((a, b) => {
+        const vA = (a.version || (a.versions ? a.versions.slice(-1)[0] : '0.0.0')).split(/[\.-]/).map(v => isNaN(v) ? v : Number(v))
+        const vB = (b.version || (b.versions ? b.versions.slice(-1)[0] : '0.0.0')).split(/[\.-]/).map(v => isNaN(v) ? v : Number(v))
+        for (let i = 0; i < Math.max(vA.length, vB.length); i++) {
+          const partA = vA[i] ?? -1
+          const partB = vB[i] ?? -1
+          if (typeof partA === 'number' && typeof partB === 'number') {
+            if (partA > partB) return -1
+            if (partA < partB) return 1
+          } else {
+            if (String(partA) > String(partB)) return -1
+            if (String(partA) < String(partB)) return 1
+          }
+        }
+        return 0
+      })
+      const best = sorted[0]
+      cppVersion.value = best.version || (best.versions ? best.versions.slice(-1)[0] : null)
     }
   } catch (_) {
     // Fallback to a commonly available version if runtime discovery fails
@@ -309,7 +326,7 @@ int main(){
           <button @click="runCode" :disabled="isRunning" class="bg-[#CCF303] text-black font-atyp-display font-medium px-5 py-2 rounded disabled:opacity-60">
             {{ isRunning ? 'Running…' : 'Run' }}
           </button>
-          <button @click="() => { result.value=null; error.value=''; }" class="border border-white/15 text-white px-4 py-2 rounded">Clear Output</button>
+          <button @click="() => { result=null; error=''; }" class="border border-white/15 text-white px-4 py-2 rounded">Clear Output</button>
         </div>
       </div>
 

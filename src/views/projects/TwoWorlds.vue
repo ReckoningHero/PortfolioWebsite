@@ -185,7 +185,7 @@ import twoWorldsVideo from '../../assets/videos/Two_Worlds.mp4'
         </div>
 
         <div class="pt-[10px]">
-          <router-link :to="{ path: '/', hash: '#individualProjects' }" class="text-[#CCF303] hover:underline">← Back to Projects</router-link>
+          <router-link :to="{ path: '/', hash: '#projects' }" class="text-[#CCF303] hover:underline">← Back to Projects</router-link>
         </div>
       </div>
     </div>

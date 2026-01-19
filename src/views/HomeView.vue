@@ -3,8 +3,7 @@ import { onMounted, ref } from "vue";
 import gsap from "gsap";
 import Hero from '../components/Hero.vue';
 import About from '../components/About.vue';
-import HighlightedProjects from '../components/HighlightedProjects.vue';
-import IndividualProjects from '../components/IndividualProjects.vue';
+import Projects from '../components/Projects.vue';
 import ShippedGames from '../components/ShippedGames.vue';
 import Blog from '../components/Blog.vue';    
 import Contact from '../components/Contact.vue';
@@ -36,8 +35,7 @@ onMounted(() => {
       <AnimatedBackground />
       <div class="relative z-10">
         <ShippedGames />
-        <HighlightedProjects />
-        <IndividualProjects />
+        <Projects />
         <Blog />
         <LinkedIn />
         <Contact />
