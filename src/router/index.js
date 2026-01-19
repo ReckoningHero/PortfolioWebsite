@@ -63,6 +63,10 @@ const router = createRouter({
       name: 'resume',
       component: ResumeView,
     },
+    {
+      path: '/resume',
+      redirect: '/PortfolioWebsite/resume'
+    },
 
   ],
   scrollBehavior(to, from, savedPosition) {
