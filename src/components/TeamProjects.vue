@@ -40,7 +40,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
                             <path fill="#CCF303" d="M10 0C4.486 0 0 4.486 0 10s4.486 10 10 10 10-4.486 10-10S15.514 0 10 0ZM8.001 14.413l-3.713-3.705L5.7 9.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706Z"/>
                         </svg>
-                        <p class="lg:text-[1.125em] text-[18px]">UE4 build for Xbox One</p>
+                        <p class="lg:text-[1.125em] text-[18px]">UE4 build for PC</p>
                     </div>
                     <div class="flex items-center gap-[14px]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
@@ -96,7 +96,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
                             <path fill="#CCF303" d="M10 0C4.486 0 0 4.486 0 10s4.486 10 10 10 10-4.486 10-10S15.514 0 10 0ZM8.001 14.413l-3.713-3.705L5.7 9.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706Z"/>
                         </svg>
-                        <p class="lg:text-[1.125em] text-[18px]">UE4 build for Xbox One</p>
+                        <p class="lg:text-[1.125em] text-[18px]">UE4 build for PC</p>
                     </div>
                     <div class="flex items-center gap-[14px]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
@@ -151,7 +151,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
                             <path fill="#CCF303" d="M10 0C4.486 0 0 4.486 0 10s4.486 10 10 10 10-4.486 10-10S15.514 0 10 0ZM8.001 14.413l-3.713-3.705L5.7 9.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706Z"/>
                         </svg>
-                        <p class="lg:text-[1.125em] text-[18px]">UE4 build for Xbox One</p>
+                        <p class="lg:text-[1.125em] text-[18px]">UE4 build for PC</p>
                     </div>
                     <div class="flex items-center gap-[14px]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">

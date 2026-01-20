@@ -22,12 +22,13 @@ const toggleChat = () => {
   if (isOpen.value) {
     nextTick(() => {
       scrollToBottom()
-      gsap.from(".chat-window", {
-        scale: 0.8,
-        opacity: 0,
-        duration: 0.3,
-        ease: "back.out(1.7)"
-      })
+      const win = document.querySelector(".chat-window")
+      if (win) {
+        gsap.fromTo(win, 
+          { scale: 0.8, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(1.7)" }
+        )
+      }
     })
   }
 }
@@ -74,6 +75,8 @@ const sendMessage = async () => {
       botResponse = "Josh loves game jams! His project 'Two Worlds' was a highlight. He enjoys the challenge of building something polished in a short timeframe."
     } else if (input.includes('cpp') || input.includes('c++')) {
       botResponse = "C++ is Josh's primary language for gameplay engineering. He has even built an online C++ IDE (check it out in the menu!) to demonstrate his skills."
+    } else if (input.includes('hello') || input.includes('hi') || input.includes('hey')) {
+      botResponse = "Hello! I'm here to help you learn more about Josh's work. What would you like to know?"
     } else {
       botResponse = "I'm not sure I understand that yet, but I'm learning! You can ask about Josh's skills, projects, or how to contact him."
     }
@@ -82,7 +85,7 @@ const sendMessage = async () => {
     chatHistory.value.push({ role: 'bot', text: botResponse })
     await nextTick()
     scrollToBottom()
-  }, 1500)
+  }, 1000)
 }
 </script>
 

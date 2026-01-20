@@ -37,7 +37,6 @@ onMounted(() => {
         <ShippedGames />
         <Projects />
         <Blog />
-        <LinkedIn />
         <Contact />
       </div>
     </section>

@@ -29,6 +29,11 @@ defineProps({
         type: String,
         required: true,
         default: "/"
+    },
+    backgroundVideo: {
+        type: String,
+        required: false,
+        default: "https://hugo.fyi/res/video/hero1/hero1.mp4"
     }
 })
 </script>
@@ -42,8 +47,9 @@ defineProps({
             loop
             muted
             playsinline
+            :key="backgroundVideo"
         >
-            <source src="https://hugo.fyi/res/video/hero1/hero1.mp4" type="video/mp4" />
+            <source :src="backgroundVideo" type="video/mp4" />
             Your browser does not support the video tag.
         </video>
 

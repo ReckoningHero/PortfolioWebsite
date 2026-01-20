@@ -1,5 +1,6 @@
 <script setup>
 import Navbar from '../../components/Navbar.vue';
+import CommentSection from '../../components/common/CommentSection.vue';
 </script>
 
 <template>
@@ -92,8 +93,12 @@ import Navbar from '../../components/Navbar.vue';
             your game run fast on high-end hardware, but to ensure it's accessible to as many players as possible.
           </p>
           
+          <div class="pt-[30px] border-t border-white/10 mt-12">
+            <CommentSection slug="blog-optimizing-game-performance" />
+          </div>
+
           <div class="pt-[30px]">
-            <router-link :to="{ path: '/', hash: '#blog' }" class="text-[#CCF303] hover:underline">← Back to Blog</router-link>
+            <router-link to="/PortfolioWebsite/#blog" class="text-[#CCF303] hover:underline">← Back to Blog</router-link>
           </div>
         </div>
       </div>

@@ -75,7 +75,15 @@ onMounted(() => {
         ref="contentRef"
         class="px-[35px] py-[25px] bg-[#202528] text-white font-atyp-display font-medium lg:text-[1.375em] text-[16px] overflow-hidden"
       >
-        {{ content }}
+        <div v-if="content.includes('\n')" class="space-y-2">
+          <div v-for="(line, idx) in content.split('\n')" :key="idx" class="flex items-start gap-3">
+            <span class="mt-2.5 w-1.5 h-1.5 rounded-full bg-[#CCF303] shrink-0"></span>
+            <span>{{ line }}</span>
+          </div>
+        </div>
+        <template v-else>
+          {{ content }}
+        </template>
       </div>
     </div>
   </div>

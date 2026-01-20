@@ -57,7 +57,7 @@ import Navbar from '../../components/Navbar.vue';
           </p>
           
           <div class="pt-[30px]">
-            <router-link :to="{ path: '/', hash: '#blog' }" class="text-[#CCF303] hover:underline">← Back to Blog</router-link>
+            <router-link to="/PortfolioWebsite/#blog" class="text-[#CCF303] hover:underline">← Back to Blog</router-link>
           </div>
         </div>
       </div>

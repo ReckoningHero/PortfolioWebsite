@@ -18,7 +18,7 @@ const posts = ref([
     excerpt:
       'A practical intro to UE5 networking: replication, RPCs, authority/ownership, movement, and common pitfalls.',
     image: ue5NetImage,
-    to: '/blog/unreal-engine-5',
+    to: '/PortfolioWebsite/blog/unreal-engine-5',
   },
   {
     slug: 'optimizing-game-performance',
@@ -27,7 +27,7 @@ const posts = ref([
     excerpt:
       "Tips and tricks for improving your game's performance across different platforms and hardware configurations.",
     image: perfImage,
-    to: '/blog/optimizing-game-performance',
+    to: '/PortfolioWebsite/blog/optimizing-game-performance',
   },
   {
     slug: 'character-animations',
@@ -36,7 +36,7 @@ const posts = ref([
     excerpt:
       'A deep dive into character animation techniques that can bring your game characters to life.',
     image: '../assets/images/ProjectUnreal.png',
-    to: '/blog/character-animations',
+    to: '/PortfolioWebsite/blog/character-animations',
   },
   {
     slug: 'xbox-development',
@@ -45,7 +45,7 @@ const posts = ref([
     excerpt:
       'Insights into developing games for the latest Xbox console and leveraging its powerful hardware.',
     image: '../assets/images/ProjectUnreal.png',
-    to: '/blog/xbox-development',
+    to: '/PortfolioWebsite/blog/xbox-development',
   },
 ])
 

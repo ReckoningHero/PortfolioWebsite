@@ -24,7 +24,7 @@ const projects = [
       'Finite state machine in C++',
       'Melee + range combat system',
       'Custom collision checking',
-      'UE4 build for Xbox One',
+      'UE4 build for PC',
       'Custom projectile ‘batching’',
       'Two-pass shader using stencil buffer'
     ],
@@ -41,11 +41,11 @@ const projects = [
       'Finite state machine in C++',
       'Melee + range combat system',
       'Custom collision checking',
-      'UE4 build for Xbox One',
+      'UE4 build for PC',
       'Custom projectile ‘batching’',
       'Two-pass shader using stencil buffer'
     ],
-    link: '/PortfolioWebsite/projects/cyberwar', // Reusing link as per existing code
+    link: '/PortfolioWebsite/projects/cyberwar',
     highlighted: true
   },
   {
@@ -62,7 +62,7 @@ const projects = [
       'Custom points ‘batching’',
       'Custom Locomotion/Hand Tracking'
     ],
-    link: '/PortfolioWebsite/projects/cyberwar', // Reusing link as per existing code
+    link: '/PortfolioWebsite/projects/infovisionverse',
     highlighted: true
   },
   {
@@ -76,7 +76,7 @@ const projects = [
       'Finite state machine in C++',
       'Melee + range combat system',
       'Custom collision checking',
-      'UE4 build for Xbox One',
+      'UE4 build for PC',
       'Custom projectile ‘batching’',
       'Two-pass shader using stencil buffer'
     ],

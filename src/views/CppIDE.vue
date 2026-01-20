@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue'
 import HoverTabs from '@/components/common/HoverTabs.vue'
+import CommentSection from '@/components/common/CommentSection.vue'
 
 const code = ref(`#include <iostream>
 int main() {
@@ -92,48 +93,8 @@ async function runCode() {
   }
 }
 
-// ----- Simple local comment system (localStorage only) -----
-const COMMENTS_STORAGE_KEY = 'comments:/cpp-ide'
-const comments = ref([])
-const commenterName = ref('')
-const commentBody = ref('')
-
-onMounted(() => {
-  try {
-    const raw = localStorage.getItem(COMMENTS_STORAGE_KEY)
-    comments.value = raw ? JSON.parse(raw) : []
-  } catch (_) {
-    comments.value = []
-  }
-})
-
-function persistComments() {
-  try { localStorage.setItem(COMMENTS_STORAGE_KEY, JSON.stringify(comments.value)) } catch (_) {}
-}
-
-function addComment() {
-  const name = (commenterName.value || 'Anonymous').trim()
-  const body = (commentBody.value || '').trim()
-  if (!body) return
-  const now = new Date()
-  comments.value.unshift({
-    id: `${now.getTime()}-${Math.random().toString(36).slice(2,8)}`,
-    name,
-    body,
-    createdAt: now.toISOString(),
-  })
-  commenterName.value = ''
-  commentBody.value = ''
-  persistComments()
-}
-
-function deleteComment(id) {
-  const idx = comments.value.findIndex(c => c.id === id)
-  if (idx !== -1) {
-    comments.value.splice(idx, 1)
-    persistComments()
-  }
-}
+// ----- Simple local comment system -----
+// Logic moved to CommentSection.vue component
 
 // ----- Tabs for C++ IDE sections -----
 const ideTabs = [
@@ -356,39 +317,8 @@ int main(){
       </div>
     </div>
 
-    <!-- Comments Section (local-only) -->
-    <div class="mt-12">
-      <h2 class="text-[22px] lg:text-[26px] font-atyp-display font-medium mb-4">Comments</h2>
-
-      <!-- New comment form -->
-      <div class="rounded-md border border-white/10 bg-[#0b1520] p-4 mb-6">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-3 mb-3">
-          <input v-model="commenterName" placeholder="Your name (optional)" class="w-full rounded-md bg-[#081019] text-white px-3 py-2 text-sm outline-none border border-white/10 focus:border-[#CCF303] lg:col-span-1" />
-          <div class="lg:col-span-2">
-            <textarea v-model="commentBody" placeholder="Write a comment..." rows="3" class="w-full rounded-md bg-[#081019] text-white px-3 py-2 text-sm outline-none border border-white/10 focus:border-[#CCF303]"></textarea>
-          </div>
-        </div>
-        <div class="flex items-center gap-3">
-          <button @click="addComment" class="bg-[#CCF303] text-black font-atyp-display font-medium px-4 py-2 rounded">Post Comment</button>
-          <span class="text-xs text-white/50">Comments are saved only on this device (localStorage).</span>
-        </div>
-      </div>
-
-      <!-- Comments list -->
-      <div v-if="comments.length" class="space-y-3">
-        <div v-for="c in comments" :key="c.id" class="rounded-md border border-white/10 bg-[#0b1520] p-4">
-          <div class="flex items-center justify-between mb-2">
-            <div class="text-white/80 text-sm">
-              <span class="font-atyp-display font-medium">{{ c.name || 'Anonymous' }}</span>
-              <span class="text-white/40"> • {{ new Date(c.createdAt).toLocaleString() }}</span>
-            </div>
-            <button @click="deleteComment(c.id)" class="text-white/50 hover:text-white/80 text-xs border border-white/15 px-2 py-1 rounded">Delete</button>
-          </div>
-          <pre class="whitespace-pre-wrap text-white/90 text-sm">{{ c.body }}</pre>
-        </div>
-      </div>
-      <div v-else class="text-white/50">No comments yet. Be the first to share your thoughts.</div>
-    </div>
+    <!-- Comments Section -->
+    <CommentSection slug="cpp-ide" />
   </div>
 </template>
 

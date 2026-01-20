@@ -24,6 +24,11 @@ const router = createRouter({
       component: CyberWar,
     },
     {
+      path: '/PortfolioWebsite/projects/infovisionverse',
+      name: 'infovisionverse',
+      component: () => import('../views/projects/Infovisionverse.vue'),
+    },
+    {
       path: '/PortfolioWebsite/projects/two-worlds',
       name: 'two-worlds',
       component: () => import('../views/projects/TwoWorlds.vue'),
