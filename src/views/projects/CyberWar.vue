@@ -32,6 +32,7 @@ onMounted(() => {
           'C#',
       ]"
       download="/"
+      :backgroundVideo="null"
     />
     <div class="space-y-4 mt-11">
       <Accordion
