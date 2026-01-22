@@ -81,9 +81,18 @@ onMounted(() => {
           Back to Details
         </button>
         <EmbedDemo 
-          url="http://ec2-44-201-193-90.compute-1.amazonaws.com/" 
+          url="https://ec2-44-201-193-90.compute-1.amazonaws.com/" 
           title="Infovisionverse Unity Demo" 
         />
+        <div class="mt-4 text-center">
+          <a 
+            href="http://ec2-44-201-193-90.compute-1.amazonaws.com/" 
+            target="_blank" 
+            class="text-[#CCF303] hover:underline font-atyp-display"
+          >
+            Can't see the demo? Click here to open it in a new tab
+          </a>
+        </div>
       </div>
       
       <div class="container mx-auto lg:px-[5em] px-[9em] py-10">
