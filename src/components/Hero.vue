@@ -1,3 +1,7 @@
+<script setup>
+import { RouterLink } from 'vue-router'
+</script>
+
 <template>
     <div class="relative w-full lg:h-[46em] h-[380px] overflow-hidden">
         <!-- Background Video -->
@@ -24,11 +28,12 @@
                 Welcome to my realm! <span class="text-[#CCF303]"> Gameplay Engineer </span> loving to fix tech problems. 
             </h3>
             <p class="text-[#6B767F] lg:text-[1.375em] text-[16px] font-atyp-display font-medium lg:w-1/2 mt-[15px]">
-                Code and .
+                I specialize in high-performance C++ systems, Unreal Engine, and Unity development, building robust gameplay mechanics and optimized tools.
             </p>
-            <div class="flex gap-[21px] mt-[38px]">
+            <div class="flex flex-wrap gap-[21px] mt-[38px]">
                 <a href="/PortfolioWebsite/#contact" class="bg-[#CCF303] px-[23px] py-[15px] uppercase lg:text-[1.375em] text-[16px] text-black font-atyp-display font-medium shadow-[0_0_30px_#cbf30355] hover:shadow-[0_0_40px_#cbf30355] hover:translate-y-[-5px] transition-all">Let's have a chat</a>
                 <a href="/PortfolioWebsite/#projects" class="hover:bg-[#CCF303] hover:text-black transition-all border border-[#CCF303] px-[23px] py-[15px] uppercase lg:text-[1.375em] text-[16px] text-[#CCF303] font-atyp-display font-medium">My projects</a>
+                <router-link to="/PortfolioWebsite/resume" class="hover:bg-white/10 transition-all border border-white px-[23px] py-[15px] uppercase lg:text-[1.375em] text-[16px] text-white font-atyp-display font-medium">Resume</router-link>
             </div>
         </div>
     </div>

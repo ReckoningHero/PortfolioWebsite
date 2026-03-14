@@ -23,7 +23,8 @@ defineProps({
             ></iframe>
         </div>
         <p class="text-[#6B767F] text-center mt-4 font-atyp-display italic text-sm">
-            Note: If the demo doesn't load, ensure your browser allows content from the provided URL.
+            Note: If the demo doesn't load, ensure your browser allows content from the provided URL. 
+            Browsers often block HTTP content on HTTPS sites.
         </p>
     </div>
 </template>

@@ -15,15 +15,20 @@ const result = ref(null)
 const error = ref("")
 
 // Piston API base
-const API_BASE = 'https://emkc.org/api/v2/piston'
+const API_BASE = ref(localStorage.getItem('piston-api-url') || 'https://emkc.org/api/v2/piston')
+const API_KEY = ref(localStorage.getItem('piston-api-key') || '')
+const EXEC_ENGINE = ref(localStorage.getItem('exec-engine') || 'wandbox') // Default to working Wandbox engine
 
 // Cache the latest available C++ version from runtimes
 const cppVersion = ref(null)
 
 async function resolveCppVersion() {
+  if (EXEC_ENGINE.value === 'wandbox') {
+    return 'gcc-head' // Default for Wandbox
+  }
   if (cppVersion.value) return cppVersion.value
   try {
-    const res = await fetch(`${API_BASE}/runtimes`)
+    const res = await fetch(`${API_BASE.value}/runtimes`)
     if (!res.ok) throw new Error('Failed to fetch runtimes')
     const runtimes = await res.json()
     // Piston may expose language id as 'cpp' or 'c++' depending on runtime
@@ -61,11 +66,46 @@ async function runCode() {
   error.value = ""
   result.value = null
   try {
-    // Ensure we have a version to avoid 400 from API
     const version = await resolveCppVersion()
-    const res = await fetch(`${API_BASE}/execute`, {
+
+    if (EXEC_ENGINE.value === 'wandbox') {
+      const res = await fetch('https://wandbox.org/api/compile.json', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          compiler: version, // e.g. 'gcc-head'
+          code: code.value,
+          stdin: stdinText.value,
+          save: false
+        })
+      })
+      if (!res.ok) throw new Error(`Wandbox API error: ${res.status} ${res.statusText}`)
+      const data = await res.json()
+      // Map Wandbox result to similar format as Piston for UI compatibility
+      result.value = {
+        run: {
+          stdout: data.program_output,
+          stderr: data.program_error,
+          code: parseInt(data.status) || 0,
+          signal: data.signal
+        },
+        compile: {
+          stderr: data.compiler_error || data.compiler_message,
+          code: (data.compiler_error) ? 1 : 0
+        }
+      }
+      return
+    }
+
+    // Piston execution flow
+    const headers = { 'Content-Type': 'application/json' }
+    if (API_KEY.value) {
+      headers['Authorization'] = API_KEY.value
+    }
+
+    const res = await fetch(`${API_BASE.value}/execute`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers,
       body: JSON.stringify({
         language: 'cpp',
         version,
@@ -77,9 +117,15 @@ async function runCode() {
       // Try to surface API-provided error details
       try {
         const errJson = await res.json()
-        const msg = errJson?.message || errJson?.error || JSON.stringify(errJson)
+        let msg = errJson?.message || errJson?.error || JSON.stringify(errJson)
+        
+        if (res.status === 401 && API_BASE.value.includes('emkc.org')) {
+          msg = "The public Piston API is now whitelist-only (as of Feb 2026). Please provide a custom Piston URL or API Key in the settings below, or contact the site owner to request whitelisting. Alternatively, switch to the Wandbox engine."
+        }
+        
         throw new Error(`Execution API error: ${res.status} ${res.statusText}${msg ? ' — ' + msg : ''}`)
-      } catch {
+      } catch (inner) {
+        if (inner instanceof Error && inner.message.includes("whitelist-only")) throw inner
         const txt = await res.text().catch(() => '')
         throw new Error(`Execution API error: ${res.status} ${res.statusText}${txt ? ' — ' + txt : ''}`)
       }
@@ -93,6 +139,14 @@ async function runCode() {
   }
 }
 
+function saveSettings() {
+  localStorage.setItem('piston-api-url', API_BASE.value)
+  localStorage.setItem('piston-api-key', API_KEY.value)
+  localStorage.setItem('exec-engine', EXEC_ENGINE.value)
+  cppVersion.value = null // Reset cached version to re-fetch from new URL/engine
+  alert('Settings saved!')
+}
+
 // ----- Simple local comment system -----
 // Logic moved to CommentSection.vue component
 
@@ -103,6 +157,7 @@ const ideTabs = [
   { id: 'examples', label: 'Examples' },
   { id: 'howto', label: 'How to Run' },
   { id: 'roadmap', label: 'Roadmap' },
+  { id: 'settings', label: 'Settings' },
 ]
 // ----- Animated expanding panels (for the tab sections) -----
 const currentTabId = ref('overview')
@@ -154,7 +209,7 @@ onBeforeUnmount(() => {
 <template>
   <div class="container mx-auto lg:px-[5em] px-[2em] py-10">
     <h1 class="text-[28px] lg:text-[36px] font-atyp-display font-medium mb-3">C++ IDE (Online Compiler)</h1>
-    <p class="text-white/70 mb-6">Write and run C++ directly in your browser. This uses the public Piston execution API. Avoid sensitive code; execution is sandboxed and time-limited.</p>
+    <p class="text-white/70 mb-6">Write and run C++ directly in your browser. Powered by <strong>Wandbox</strong> (default) or <strong>Piston</strong>. <strong>Note:</strong> If you use Piston, the public API is now restricted; you may need to provide a custom endpoint in Settings.</p>
 
     <!-- Hover Tabs like the reference site -->
     <HoverTabs :tabs="ideTabs" initial-id="overview" @change="onTabChange">
@@ -173,7 +228,7 @@ onBeforeUnmount(() => {
           class="rounded-md border border-white/10 bg-[#0b1520] p-5"
         >
           <h2 class="text-[20px] lg:text-[22px] font-atyp-display font-medium mb-2 text-[#CCF303]">Overview</h2>
-          <p class="text-white/80">This page lets you edit and execute small C++ programs without setting up a local toolchain. It’s powered by the open Piston API and runs your code in a sandbox with limited resources. Great for quick tests, learning, or sharing snippets.</p>
+          <p class="text-white/80">This page lets you edit and execute small C++ programs. By default, it uses the <strong>Wandbox API</strong> which is open and free. You can also switch to the <strong>Piston API</strong> in settings if you have a private instance or an API key.</p>
           <p class="text-white/60 mt-2">Hover the tabs above to preview different sections. The container will smoothly expand to fit the content, pushing the layout down like the example site.</p>
         </section>
 
@@ -188,8 +243,10 @@ onBeforeUnmount(() => {
           <ul class="list-disc pl-5 space-y-1 text-white/80">
             <li>Run C++ code with optional stdin input</li>
             <li>Shows stdout, stderr, and compile errors separately</li>
-            <li>Latest available runtime auto-detected</li>
+            <li>Latest available runtime auto-detected via Piston API</li>
             <li>Local-only comments section (saved to your device)</li>
+            <li>Responsive design for both desktop and mobile coding</li>
+            <li>Optimized for quick prototyping and algorithm testing</li>
           </ul>
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-3 mt-4">
             <div class="bg-[#081019] border border-white/10 rounded p-3">
@@ -268,6 +325,42 @@ int main(){
             <li>Save/share gists of code snippets</li>
             <li>Multiple files support</li>
           </ul>
+        </section>
+
+        <section
+          :id="`panel-${'settings'}`"
+          role="tabpanel"
+          :aria-labelledby="`tab-${'settings'}`"
+          v-show="activeId === 'settings'"
+          class="rounded-md border border-white/10 bg-[#0b1520] p-5"
+        >
+          <h2 class="text-[20px] lg:text-[22px] font-atyp-display font-medium mb-3 text-[#CCF303]">API Settings</h2>
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm uppercase tracking-wide text-white/60 mb-2">Execution Engine</label>
+              <select v-model="EXEC_ENGINE" class="w-full rounded-md bg-[#081019] text-white p-3 font-mono text-sm outline-none border border-white/10 focus:border-[#CCF303]">
+                <option value="wandbox">Wandbox (Recommended - Free & Open)</option>
+                <option value="piston">Piston (Custom instance or whitelisted)</option>
+              </select>
+            </div>
+            <div v-if="EXEC_ENGINE === 'piston'">
+              <div class="space-y-4">
+                <div>
+                  <label class="block text-sm uppercase tracking-wide text-white/60 mb-2">Piston API URL</label>
+                  <input v-model="API_BASE" type="text" class="w-full rounded-md bg-[#081019] text-white p-3 font-mono text-sm outline-none border border-white/10 focus:border-[#CCF303]" placeholder="https://emkc.org/api/v2/piston" />
+                  <p class="text-white/40 text-xs mt-1">Default: emkc.org (Public API). You can use your own self-hosted Piston instance.</p>
+                </div>
+                <div>
+                  <label class="block text-sm uppercase tracking-wide text-white/60 mb-2">API Key / Authorization (Optional)</label>
+                  <input v-model="API_KEY" type="password" class="w-full rounded-md bg-[#081019] text-white p-3 font-mono text-sm outline-none border border-white/10 focus:border-[#CCF303]" placeholder="Your API Key" />
+                  <p class="text-white/40 text-xs mt-1">Only required if your Piston instance requires an Authorization header.</p>
+                </div>
+              </div>
+            </div>
+            <button @click="saveSettings" class="bg-[#CCF303] text-black font-atyp-display font-medium px-5 py-2 rounded">
+              Save Settings
+            </button>
+          </div>
         </section>
         </div>
       </template>

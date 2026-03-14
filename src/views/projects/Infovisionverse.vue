@@ -81,16 +81,19 @@ onMounted(() => {
           Back to Details
         </button>
         <EmbedDemo 
-          url="https://ec2-44-201-193-90.compute-1.amazonaws.com/" 
+          url="http://ec2-44-201-193-90.compute-1.amazonaws.com/" 
           title="Infovisionverse Unity Demo" 
         />
-        <div class="mt-4 text-center">
+        <div class="container mx-auto lg:px-[5em] px-[9em] mt-4 text-center bg-white/5 p-6 rounded-[1.375em] border border-white/10">
+          <p class="text-white mb-4">
+            If the demo above doesn't load, it might be due to your browser blocking insecure (HTTP) content on this HTTPS site.
+          </p>
           <a 
             href="http://ec2-44-201-193-90.compute-1.amazonaws.com/" 
             target="_blank" 
-            class="text-[#CCF303] hover:underline font-atyp-display"
+            class="inline-block bg-[#CCF303] px-6 py-3 text-black font-atyp-display font-medium rounded-lg shadow-[0_0_20px_#cbf30333] hover:shadow-[0_0_30px_#cbf30355] transition-all"
           >
-            Can't see the demo? Click here to open it in a new tab
+            Open Demo in New Tab
           </a>
         </div>
       </div>

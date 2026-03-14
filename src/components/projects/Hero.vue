@@ -30,6 +30,16 @@ defineProps({
         required: true,
         default: "/"
     },
+    jamLink: {
+        type: String,
+        required: false,
+        default: null
+    },
+    githubLink: {
+        type: String,
+        required: false,
+        default: null
+    },
     playDemo: {
         type: [String, Boolean],
         required: false,
@@ -92,6 +102,24 @@ const emit = defineEmits(['play-demo'])
             <div class="flex flex-wrap gap-[21px] mt-[38px]">
                 <router-link v-if="download !== '/'" :to="download" class="bg-[#CCF303] px-[23px] py-[15px] lg:text-[1.375em] text-[16px] text-black font-atyp-display font-medium shadow-[0_0_30px_#cbf30355] hover:shadow-[0_0_40px_#cbf30355] hover:translate-y-[-5px] transition-all">Download</router-link>
                 
+                <a 
+                    v-if="jamLink" 
+                    :href="jamLink" 
+                    target="_blank" 
+                    class="bg-[#CCF303] px-[23px] py-[15px] lg:text-[1.375em] text-[16px] text-black font-atyp-display font-medium shadow-[0_0_30px_#cbf30355] hover:shadow-[0_0_40px_#cbf30355] hover:translate-y-[-5px] transition-all"
+                >
+                    View Game Jam Page
+                </a>
+
+                <a 
+                    v-if="githubLink" 
+                    :href="githubLink" 
+                    target="_blank" 
+                    class="bg-white/10 backdrop-blur-sm border border-white/20 px-[23px] py-[15px] lg:text-[1.375em] text-[16px] text-white font-atyp-display font-medium hover:bg-white/20 hover:translate-y-[-5px] transition-all"
+                >
+                    View GitHub
+                </a>
+
                 <template v-if="playDemo">
                     <button 
                         v-if="playDemo === true" 

@@ -154,11 +154,30 @@
         </span>
 
         <!-- Title and platform in bottom overlay -->
-        <div class="absolute bottom-0 left-0 right-0 p-5">
+        <div class="absolute bottom-0 left-0 right-0 p-5 group-hover:translate-y-[-10px] transition-transform duration-300">
           <h5 class="font-atyp-display font-semibold text-white text-[22px] lg:text-[1.375em]">
             {{ game.title }}
           </h5>
           <p class="font-atyp-display text-[#B0BAC3] text-[14px] lg:text-[0.95em] mt-1">{{ game.platform }}</p>
+        </div>
+
+        <!-- Hover Responsibilities Overlay -->
+        <div class="absolute inset-0 bg-[#0B1217]/95 flex flex-col p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-y-auto">
+          <h5 class="font-atyp-display font-semibold text-[#CCF303] text-[20px] mb-4">
+            Key Responsibilities
+          </h5>
+          <ul class="space-y-3">
+            <li 
+              v-for="(bullet, index) in game.bullets" 
+              :key="index"
+              class="flex items-start gap-3"
+            >
+              <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#CCF303] shrink-0"></span>
+              <p class="font-atyp-display text-white/90 text-[14px] leading-snug">
+                {{ bullet }}
+              </p>
+            </li>
+          </ul>
         </div>
       </a>
     </div>
@@ -175,28 +194,6 @@ const ENABLE_HERO = false
 
 const games = ref([
   {
-    slug: 'cyber-assault',
-    title: 'Cyber Assault',
-    platform: 'Xbox Series X | PS5 | PC',
-    image: '../assets/images/game1.jpg',
-    alt: 'Cyber Assault',
-    category: 'Original',
-    bullets: ['Lead Programmer', 'Advanced AI systems', 'Destructible environments'],
-    link: 'https://store.steampowered.com',
-    cta: 'View on Steam →',
-  },
-  {
-    slug: 'galactic-frontier',
-    title: 'Galactic Frontier',
-    platform: 'PC | Nintendo Switch',
-    image: '../assets/images/game2.jpg',
-    alt: 'Galactic Frontier',
-    category: 'Co-Development',
-    bullets: ['Gameplay Programmer', 'Procedural generation', 'Dynamic ecosystems'],
-    link: 'https://www.nintendo.com/store',
-    cta: 'View on Nintendo Store →',
-  },
-  {
     slug: 'horizon-worlds',
     title: 'Horizon Worlds',
     platform: 'Meta Quest',
@@ -204,11 +201,13 @@ const games = ref([
     alt: 'Horizon Worlds logo',
     category: 'Co-Development',
     bullets: [
-      'Gameplay Engineer II',
-      'C++ engine/tooling integrations',
-      'C# editor tooling & scripting pipelines',
-      'React.js internal tools for creator workflows',
-      'Editor workflows, bug triage, and interactive scripting support',
+      'Engineered innovative NPC behavior tools to boost user interaction and engagement.',
+      'Contributed to the development and maintenance of the core Horizon Engine codebase.',
+      'Developed technical demonstrations in TypeScript, C#, and C++ to showcase NPC capabilities for creators.',
+      'Produced scalable code examples for creator education and AI model training.',
+      'Built a dynamic dialogue system in C++ featuring branching logic and randomized variations.',
+      'Refactored component pooling systems, increasing code coverage to 75% while optimizing performance.',
+      'Partnered with cross-functional teams to refine 3Cs (Camera, Character, Control) alignment.'
     ],
     link: 'https://www.oculus.com/horizon-worlds/',
     cta: 'View on Meta →',
@@ -220,7 +219,12 @@ const games = ref([
     image: ghostsOfTaborImg,
     alt: 'Ghosts of Tabor logo',
     category: 'Co-Development',
-    bullets: ['Gameplay Programmer', 'VR survival mechanics', 'Multiplayer systems'],
+    bullets: [
+      'Integrated Steam Web API and online subsystems for multiplayer servers via AWS/Azure backends.',
+      'Designed and scripted core engine systems for a VR survival and PVP simulation.',
+      'Architected and established scalable backend infrastructure for game services.',
+      'Successfully published and shipped on Oculus Quest 2 and Steam using .NET, C#, and Azure PlayFab.'
+    ],
     link: 'https://ghostsoftabor.com/',
     cta: 'Visit Official Site →',
   },
