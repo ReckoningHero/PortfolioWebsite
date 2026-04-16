@@ -13,7 +13,7 @@
 
 <script setup>
 // Purely presentational background; no script needed
-</script>
+</script>L
 
 <style scoped>
 .animated-bg {

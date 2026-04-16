@@ -163,7 +163,10 @@
 
         <!-- Hover Responsibilities Overlay -->
         <div class="absolute inset-0 bg-[#0B1217]/95 flex flex-col p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-y-auto">
-          <h5 class="font-atyp-display font-semibold text-[#CCF303] text-[20px] mb-4">
+          <h4 v-if="game.jobTitle" class="font-atyp-display font-bold text-white text-[18px] mb-1">
+            {{ game.jobTitle }}
+          </h4>
+          <h5 class="font-atyp-display font-semibold text-[#CCF303] text-[16px] mb-4">
             Key Responsibilities
           </h5>
           <ul class="space-y-3">
@@ -196,6 +199,7 @@ const games = ref([
   {
     slug: 'horizon-worlds',
     title: 'Horizon Worlds',
+    jobTitle: 'Gameplay Engineer II at Meta',
     platform: 'Meta Quest',
     image: horizonLogo,
     alt: 'Horizon Worlds logo',
@@ -215,6 +219,7 @@ const games = ref([
   {
     slug: 'ghosts-of-tabor',
     title: 'Ghosts of Tabor',
+    jobTitle: 'Full Stack Engineer at Combat Waffle Studio',
     platform: 'Meta Quest | PCVR',
     image: ghostsOfTaborImg,
     alt: 'Ghosts of Tabor logo',
