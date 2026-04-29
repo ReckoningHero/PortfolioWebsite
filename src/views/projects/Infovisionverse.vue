@@ -91,7 +91,7 @@ onMounted(() => {
           <a 
             href="http://ec2-44-201-193-90.compute-1.amazonaws.com/" 
             target="_blank" 
-            class="inline-block bg-[#CCF303] px-6 py-3 text-black font-atyp-display font-medium rounded-lg shadow-[0_0_20px_#cbf30333] hover:shadow-[0_0_30px_#cbf30355] transition-all"
+            class="inline-block bg-[#CCF303] px-6 py-3 text-black font-atyp-display font-medium rounded-lg shadow-[0_0_20px_#CCF30333] hover:shadow-[0_0_30px_#CCF30355] transition-all"
           >
             Open Demo in New Tab
           </a>

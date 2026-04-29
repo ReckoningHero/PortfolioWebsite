@@ -2,6 +2,7 @@
 import { onMounted, ref } from "vue";
 import gsap from "gsap";
 import Hero from '../components/Hero.vue';
+import Expertise from '../components/Expertise.vue';
 import About from '../components/About.vue';
 import Projects from '../components/Projects.vue';
 import ShippedGames from '../components/ShippedGames.vue';
@@ -29,6 +30,7 @@ onMounted(() => {
     <!-- Animated background video (Home page only) -->
     <VideoBackground overlay="medium" />
     <Hero />
+    <Expertise />
     <About />
     <!-- Scope the animated background to everything below About -->
     <section class="relative">

@@ -187,7 +187,7 @@ function closeModel() {
             </div>
 
             <div class="mt-8 pt-8 border-t border-white/10">
-              <button class="w-full py-3 bg-[#CCF303] text-black font-medium rounded hover:bg-[#b8db03] transition-colors">
+              <button class="w-full py-3 bg-[#CCF303] text-black font-medium rounded hover:bg-[#b8da02] transition-colors">
                 View on ArtStation
               </button>
             </div>

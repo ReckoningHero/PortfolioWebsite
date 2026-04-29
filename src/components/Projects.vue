@@ -17,36 +17,34 @@ const selectedCategory = ref('All')
 const projects = [
   {
     id: 'cyberwar',
-    title: 'CyberWar (Third Person Shooter)',
-    description: 'A fast-paced third-person shooter developed in Unreal Engine 4 focusing on advanced AI behaviors and fluid combat mechanics.',
+    title: 'CyberWar (TPS)',
+    description: 'A high-octane third-person shooter in Unreal Engine 4 featuring advanced AI, dynamic cover systems, and optimized weapon mechanics.',
     category: 'Individual Project',
     type: 'image',
     src: projectUnrealImg,
     responsibilities: [
-      'Finite state machine in C++',
-      'Melee + range combat system',
-      'Custom collision checking',
-      'UE4 build for PC',
-      'Custom projectile ‘batching’',
-      'Two-pass shader using stencil buffer'
+      'Advanced AI Finite State Machine',
+      'Fluid Melee & Ranged Combat',
+      'Custom Raycast Collision Detection',
+      'Optimized Projectile Batching',
+      'Two-pass Stencil Buffer Shaders'
     ],
     link: '/PortfolioWebsite/projects/cyberwar',
     highlighted: true
   },
   {
     id: 'escape-from-worlds',
-    title: 'Escape from Worlds (Multiplayer AI Game)',
-    description: 'An experimental multiplayer title featuring complex AI agents that learn and adapt to player strategies in a dynamic environment.',
+    title: 'Escape from Worlds',
+    description: 'An experimental multiplayer survival game with neural network-based AI agents that adapt to player behavior in real-time.',
     category: 'Individual Project',
     type: 'image',
     src: projectUnrealImg,
     responsibilities: [
-      'Finite state machine in C++',
-      'Melee + range combat system',
-      'Custom collision checking',
-      'UE4 build for PC',
-      'Custom projectile ‘batching’',
-      'Two-pass shader using stencil buffer'
+      'Real-time Multiplayer Networking',
+      'Adaptive AI Learning Algorithms',
+      'Procedural Environment Generation',
+      'Custom Physics-based Interactions',
+      'C++ Core Architecture'
     ],
     link: '/PortfolioWebsite/projects/cyberwar',
     highlighted: true
@@ -233,13 +231,13 @@ watch(filteredProjects, () => {
           <div 
             v-for="project in filteredProjects" 
             :key="project.id"
-            class="project-card flex-none w-full md:w-[calc(50%-22.5px)] lg:w-[calc(33.333%-30px)] snap-start font-atyp-display flex flex-col items-start gap-[24px] bg-[#FFFFFF05] p-6 rounded-[20px] border border-white/5 hover:border-[#CCF303]/30 transition-all duration-300"
+            class="project-card flex-none w-full md:w-[calc(50%-22.5px)] lg:w-[calc(33.333%-30px)] snap-start font-atyp-display flex flex-col items-start gap-[24px] bg-[#0B1217] p-6 rounded-[24px] border border-white/5 hover:border-[#CCF303]/40 transition-all duration-500 group"
           >
           <div class="flex flex-col gap-[18px] w-full">
-            <div class="w-full h-[250px] overflow-hidden rounded-[13px] bg-black/20">
+            <div class="w-full h-[250px] overflow-hidden rounded-[18px] bg-black/40 relative">
               <video 
                 v-if="project.type === 'video'"
-                class="w-full h-full object-cover object-center" 
+                class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" 
                 autoplay 
                 loop 
                 muted 
@@ -249,66 +247,68 @@ watch(filteredProjects, () => {
               </video>
               <img 
                 v-else
-                class="w-full h-full object-cover object-center" 
+                class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" 
                 :src="project.src" 
                 :alt="project.title"
               >
+              <!-- Overlay on hover -->
+              <div class="absolute inset-0 bg-[#CCF303]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
 
             <div>
-              <div class="flex items-center gap-2 mb-2">
-                  <span class="px-2 py-0.5 bg-[#CCF303]/10 text-[#CCF303] text-[12px] uppercase tracking-wider rounded border border-[#CCF303]/20">
+              <div class="flex items-center gap-2 mb-3">
+                  <span class="px-2.5 py-1 bg-[#CCF303]/10 text-[#CCF303] text-[11px] font-bold uppercase tracking-[0.1em] rounded-md border border-[#CCF303]/20">
                       {{ project.category }}
                   </span>
-                  <span v-if="project.highlighted" class="px-2 py-0.5 bg-white/5 text-white/40 text-[12px] uppercase tracking-wider rounded border border-white/10">
+                  <span v-if="project.highlighted" class="px-2.5 py-1 bg-white/5 text-white/50 text-[11px] font-bold uppercase tracking-[0.1em] rounded-md border border-white/10">
                       Featured
                   </span>
               </div>
-              <h5 class="font-semibold text-[22px] text-[#CCF303] leading-tight mb-2">{{ project.title }}</h5>
-              <p class="text-white/60 text-sm leading-relaxed mb-1">{{ project.description }}</p>
+              <h5 class="font-bold text-[24px] text-white group-hover:text-[#CCF303] transition-colors duration-300 leading-tight mb-3">{{ project.title }}</h5>
+              <p class="text-[#6B767F] text-sm leading-relaxed mb-2 line-clamp-2 group-hover:text-white/70 transition-colors">{{ project.description }}</p>
             </div>
           </div>
 
-          <div class="flex flex-col gap-[10px] flex-grow">
+          <div class="flex flex-col gap-[12px] flex-grow w-full">
             <div v-for="(resp, index) in project.responsibilities" :key="index" class="flex items-start gap-[12px]">
-              <svg class="mt-1 shrink-0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 20 20">
-                <path fill="#CCF303" d="M10 0C4.486 0 0 4.486 0 10s4.486 10 10 10 10-4.486 10-10S15.514 0 10 0ZM8.001 14.413l-3.713-3.705L5.7 9.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706Z"/>
-              </svg>
-              <p class="text-[16px] text-white/80 leading-snug">{{ resp }}</p>
+              <div class="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-[#CCF303]/60 group-hover:bg-[#CCF303] transition-colors"></div>
+              <p class="text-[15px] text-white/70 leading-snug group-hover:text-white/90 transition-colors">{{ resp }}</p>
             </div>
           </div>
 
-          <div class="flex flex-col gap-[10px] w-full mt-auto">
+          <div class="flex flex-col gap-[12px] w-full mt-6">
             <router-link 
               v-if="project.link.startsWith('/')" 
               :to="project.link" 
-              class="w-full text-center hover:bg-[#CCF303] hover:text-black transition-all border border-[#CCF303] px-[23px] py-[10px] text-[16px] text-[#CCF303] font-medium rounded-lg mb-2 inline-block uppercase"
+              class="w-full text-center bg-transparent hover:bg-[#CCF303] hover:text-black transition-all duration-300 border border-[#CCF303]/30 hover:border-[#CCF303] px-[23px] py-[12px] text-[15px] text-[#CCF303] font-bold rounded-xl inline-block uppercase tracking-wider"
             >
-              Details
+              View Case Study
             </router-link>
             <a 
               v-else 
               :href="project.link" 
-              class="w-full text-center hover:bg-[#CCF303] hover:text-black transition-all border border-[#CCF303] px-[23px] py-[10px] text-[16px] text-[#CCF303] font-medium rounded-lg mb-2 inline-block uppercase"
+              class="w-full text-center bg-transparent hover:bg-[#CCF303] hover:text-black transition-all duration-300 border border-[#CCF303]/30 hover:border-[#CCF303] px-[23px] py-[12px] text-[15px] text-[#CCF303] font-bold rounded-xl inline-block uppercase tracking-wider"
             >
-              Details
+              View Case Study
             </a>
-            <a 
-              v-if="project.jamLink" 
-              :href="project.jamLink" 
-              target="_blank"
-              class="w-full text-center bg-white/5 hover:bg-white/10 text-white/80 transition-all border border-white/10 px-[23px] py-[10px] text-[16px] font-medium rounded-lg inline-block uppercase"
-            >
-              Jam Page
-            </a>
-            <a 
-              v-if="project.githubLink" 
-              :href="project.githubLink" 
-              target="_blank"
-              class="w-full text-center bg-white/5 hover:bg-white/10 text-white/80 transition-all border border-white/10 px-[23px] py-[10px] text-[16px] font-medium rounded-lg inline-block uppercase"
-            >
-              Github
-            </a>
+            <div class="flex gap-3">
+                <a 
+                v-if="project.jamLink" 
+                :href="project.jamLink" 
+                target="_blank"
+                class="flex-1 text-center bg-white/5 hover:bg-white/10 text-white/60 hover:text-white transition-all border border-white/5 px-[15px] py-[10px] text-[13px] font-bold rounded-lg inline-block uppercase tracking-wide"
+                >
+                Jam
+                </a>
+                <a 
+                v-if="project.githubLink" 
+                :href="project.githubLink" 
+                target="_blank"
+                class="flex-1 text-center bg-white/5 hover:bg-white/10 text-white/60 hover:text-white transition-all border border-white/5 px-[15px] py-[10px] text-[13px] font-bold rounded-lg inline-block uppercase tracking-wide"
+                >
+                Code
+                </a>
+            </div>
           </div>
         </div>
       </transition-group>

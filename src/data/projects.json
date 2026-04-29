@@ -1,0 +1,39 @@
+[
+  {
+    "slug": "horizon-worlds",
+    "title": "Horizon Worlds",
+    "jobTitle": "Gameplay Engineer II at Meta",
+    "platform": "Meta Quest",
+    "image": "../assets/images/horizonworldslogo_1024x1024.jpg",
+    "alt": "Horizon Worlds logo",
+    "category": "Co-Development",
+    "bullets": [
+      "Engineered innovative NPC behavior tools to boost user interaction and engagement.",
+      "Contributed to the development and maintenance of the core Horizon Engine codebase.",
+      "Developed technical demonstrations in TypeScript, C#, and C++ to showcase NPC capabilities for creators.",
+      "Produced scalable code examples for creator education and AI model training.",
+      "Built a dynamic dialogue system in C++ featuring branching logic and randomized variations.",
+      "Refactored component pooling systems, increasing code coverage to 75% while optimizing performance.",
+      "Partnered with cross-functional teams to refine 3Cs (Camera, Character, Control) alignment."
+    ],
+    "link": "https://www.oculus.com/horizon-worlds/",
+    "cta": "View on Meta →"
+  },
+  {
+    "slug": "ghosts-of-tabor",
+    "title": "Ghosts of Tabor",
+    "jobTitle": "Full Stack Engineer at Combat Waffle Studio",
+    "platform": "Meta Quest | PCVR",
+    "image": "../assets/images/tried-to-make-some-wallpapers-use-them-if-u-like-v0-tc8cs7ajy0qd1.png",
+    "alt": "Ghosts of Tabor logo",
+    "category": "Co-Development",
+    "bullets": [
+      "Integrated Steam Web API and online subsystems for multiplayer servers via AWS/Azure backends.",
+      "Designed and scripted core engine systems for a VR survival and PVP simulation.",
+      "Architected and established scalable backend infrastructure for game services.",
+      "Successfully published and shipped on Oculus Quest 2 and Steam using .NET, C#, and Azure PlayFab."
+    ],
+    "link": "https://ghostsoftabor.com/",
+    "cta": "Visit Official Site →"
+  }
+]

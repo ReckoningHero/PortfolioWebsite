@@ -2,7 +2,7 @@
 defineProps({
     url: {
         type: String,
-        required: true
+        required: trueWh
     },
     title: {
         type: String,

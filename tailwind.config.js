@@ -6,6 +6,12 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        'accent': {
+          DEFAULT: '#CCF303', // Neon Green
+          hover: '#b8db03',
+        }
+      },
       fontFamily: {
         'atyp-display': ['Atyp Display', 'sans-serif'],
         'atyp-text': ['Atyp Text', 'sans-serif'],

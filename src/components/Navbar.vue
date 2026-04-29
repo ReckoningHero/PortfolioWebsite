@@ -53,7 +53,8 @@ onUnmounted(() => {
 
         <!-- Desktop Navigation -->
         <div class="lg:flex hidden gap-[3.575em] text-[1.375em] font-atyp-display font-medium">
-          <a class="transition-colors hover:text-[#CCF303]" href="/PortfolioWebsite/#about">About</a>
+          <a class="transition-colors hover:text-[#CCF303]" href="/PortfolioWebsite/#expertise">Expertise</a>
+          <a class="transition-colors hover:text-[#CCF303]" href="/PortfolioWebsite/#about">Story</a>
           <a class="transition-colors hover:text-[#CCF303]" href="/PortfolioWebsite/#shippedGames">Titles</a>
           <a class="transition-colors hover:text-[#CCF303]" href="/PortfolioWebsite/#projects">Projects</a>
           <a class="transition-colors hover:text-[#CCF303]" href="/PortfolioWebsite/#blog">Blog</a>
@@ -93,7 +94,8 @@ onUnmounted(() => {
 
         <!-- Navigation Links -->
         <div class="flex flex-col mt-20 font-atyp-display font-medium gap-[0.775em] text-[20px] mb-32">
-          <a class="transition-colors hover:text-[#CCF303]" href="/PortfolioWebsite/#about" @click="closeSidebar">About</a>
+          <a class="transition-colors hover:text-[#CCF303]" href="/PortfolioWebsite/#expertise" @click="closeSidebar">Expertise</a>
+          <a class="transition-colors hover:text-[#CCF303]" href="/PortfolioWebsite/#about" @click="closeSidebar">Story</a>
           <a class="transition-colors hover:text-[#CCF303]" href="/PortfolioWebsite/#shippedGames" @click="closeSidebar">Titles</a>
           <a class="transition-colors hover:text-[#CCF303]" href="/PortfolioWebsite/#projects" @click="closeSidebar">Projects</a>
           <a class="transition-colors hover:text-[#CCF303]" href="/PortfolioWebsite/#blog" @click="closeSidebar">Blog</a>

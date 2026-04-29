@@ -24,14 +24,15 @@ import { RouterLink } from 'vue-router'
 
         <!-- Content -->
         <div class="relative container mx-auto lg:px-[5em] px-[9em] text-white z-10 flex flex-col items-start justify-center h-full">
-            <h3 class="uppercase lg:text-[5.1875em] text-[40px] font-atyp-display font-semibold lg:w-1/2 leading-[1.3em]">
-                Welcome to my realm! <span class="text-[#CCF303]"> Gameplay Engineer </span> loving to fix tech problems. 
+            <h3 class="uppercase lg:text-[5.1875em] text-[40px] font-atyp-display font-semibold lg:w-3/4 leading-[1.1em]">
+                Joshua D. Nguyen. <br/>
+                <span class="text-[#CCF303]"> Gameplay Engineer </span> & Tech Enthusiast.
             </h3>
-            <p class="text-[#6B767F] lg:text-[1.375em] text-[16px] font-atyp-display font-medium lg:w-1/2 mt-[15px]">
-                I specialize in high-performance C++ systems, Unreal Engine, and Unity development, building robust gameplay mechanics and optimized tools.
+            <p class="text-[#6B767F] lg:text-[1.5em] text-[18px] font-atyp-display font-medium lg:w-1/2 mt-[20px]">
+                Building high-performance systems in C++, Unreal Engine, and Unity. Solving complex technical challenges with optimized gameplay mechanics.
             </p>
             <div class="flex flex-wrap gap-[21px] mt-[38px]">
-                <a href="/PortfolioWebsite/#contact" class="bg-[#CCF303] px-[23px] py-[15px] uppercase lg:text-[1.375em] text-[16px] text-black font-atyp-display font-medium shadow-[0_0_30px_#cbf30355] hover:shadow-[0_0_40px_#cbf30355] hover:translate-y-[-5px] transition-all">Let's have a chat</a>
+                <a href="/PortfolioWebsite/#contact" class="bg-[#CCF303] px-[23px] py-[15px] uppercase lg:text-[1.375em] text-[16px] text-black font-atyp-display font-medium shadow-[0_0_30px_#CCF30355] hover:shadow-[0_0_40px_#CCF30355] hover:translate-y-[-5px] transition-all">Let's have a chat</a>
                 <a href="/PortfolioWebsite/#projects" class="hover:bg-[#CCF303] hover:text-black transition-all border border-[#CCF303] px-[23px] py-[15px] uppercase lg:text-[1.375em] text-[16px] text-[#CCF303] font-atyp-display font-medium">My projects</a>
                 <router-link to="/PortfolioWebsite/resume" class="hover:bg-white/10 transition-all border border-white px-[23px] py-[15px] uppercase lg:text-[1.375em] text-[16px] text-white font-atyp-display font-medium">Resume</router-link>
             </div>

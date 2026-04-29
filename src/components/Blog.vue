@@ -74,18 +74,22 @@ function nextPage() {
       <div
         v-for="post in paginatedPosts"
         :key="post.slug"
-        class="font-atyp-display flex flex-col items-start gap-[24px] bg-[#0B1217] rounded-[1.375em] overflow-hidden"
+        class="group font-atyp-display flex flex-col items-start gap-[24px] bg-[#0B1217] rounded-[1.375em] overflow-hidden border border-white/5 hover:border-[#CCF303]/30 transition-all duration-300 hover:translate-y-[-5px]"
       >
-        <div class="w-full h-[250px] overflow-hidden">
-          <img class="w-full h-full object-cover object-center" :src="post.image" :alt="post.title" />
+        <div class="w-full h-[250px] overflow-hidden relative">
+          <img class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110" :src="post.image" :alt="post.title" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0B1217] via-transparent to-transparent opacity-60"></div>
         </div>
-        <div class="px-[30px] pb-[30px]">
-          <p class="text-[#CCF303] text-[14px] mb-[10px]">{{ post.date }}</p>
-          <h5 class="font-semibold lg:text-[1.56em] text-[24px] text-white mb-[15px]">{{ post.title }}</h5>
-          <p class="font-medium lg:text-[1.125em] text-[16px] text-[#6B767F] mb-[20px]">
+        <div class="px-[30px] pb-[30px] flex flex-col h-full">
+          <p class="text-[#CCF303] text-[14px] mb-[10px] font-semibold tracking-widest uppercase">{{ post.date }}</p>
+          <h5 class="font-semibold lg:text-[1.56em] text-[24px] text-white mb-[15px] group-hover:text-[#CCF303] transition-colors line-clamp-2">{{ post.title }}</h5>
+          <p class="font-medium lg:text-[1.125em] text-[16px] text-[#6B767F] mb-[25px] line-clamp-3">
             {{ post.excerpt }}
           </p>
-          <router-link :to="post.to" class="text-[#CCF303] hover:underline">Read more →</router-link>
+          <router-link :to="post.to" class="mt-auto inline-flex items-center gap-2 text-[#CCF303] font-semibold hover:gap-4 transition-all uppercase tracking-wider text-sm">
+            Read more 
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </router-link>
         </div>
       </div>
     </div>

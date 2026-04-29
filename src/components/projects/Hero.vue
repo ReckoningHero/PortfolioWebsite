@@ -100,13 +100,13 @@ const emit = defineEmits(['play-demo'])
                 </span>
             </p>
             <div class="flex flex-wrap gap-[21px] mt-[38px]">
-                <router-link v-if="download !== '/'" :to="download" class="bg-[#CCF303] px-[23px] py-[15px] lg:text-[1.375em] text-[16px] text-black font-atyp-display font-medium shadow-[0_0_30px_#cbf30355] hover:shadow-[0_0_40px_#cbf30355] hover:translate-y-[-5px] transition-all">Download</router-link>
+                <router-link v-if="download !== '/'" :to="download" class="bg-[#CCF303] px-[23px] py-[15px] lg:text-[1.375em] text-[16px] text-black font-atyp-display font-medium shadow-[0_0_30px_#CCF30355] hover:shadow-[0_0_40px_#CCF30355] hover:translate-y-[-5px] transition-all">Download</router-link>
                 
                 <a 
                     v-if="jamLink" 
                     :href="jamLink" 
                     target="_blank" 
-                    class="bg-[#CCF303] px-[23px] py-[15px] lg:text-[1.375em] text-[16px] text-black font-atyp-display font-medium shadow-[0_0_30px_#cbf30355] hover:shadow-[0_0_40px_#cbf30355] hover:translate-y-[-5px] transition-all"
+                    class="bg-[#CCF303] px-[23px] py-[15px] lg:text-[1.375em] text-[16px] text-black font-atyp-display font-medium shadow-[0_0_30px_#CCF30355] hover:shadow-[0_0_40px_#CCF30355] hover:translate-y-[-5px] transition-all"
                 >
                     View Game Jam Page
                 </a>

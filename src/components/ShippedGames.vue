@@ -128,7 +128,7 @@
         :href="game.link"
         target="_blank"
         rel="noopener"
-        class="group relative rounded-[13px] overflow-hidden bg-[#0B1217] ring-1 ring-[#FFFFFF12] shadow-[0_8px_30px_rgba(0,0,0,0.35)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.5)] focus:outline-none focus:ring-2 focus:ring-[#CCF303] transition"
+        class="group relative rounded-[24px] overflow-hidden bg-[#0B1217] border border-white/5 shadow-[0_8px_30px_rgba(0,0,0,0.35)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.5)] focus:outline-none focus:ring-2 focus:ring-[#CCF303] transition-all duration-500 hover:translate-y-[-5px]"
         :aria-label="`Open ` + game.title"
       >
         <!-- Cover image with subtle zoom on hover -->
