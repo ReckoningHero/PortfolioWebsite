@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import resumePdf from '@/assets/doc/Joshua_D_Nguyen_Resume_2025.pdf'
+import resumePdf from '@/assets/doc/Joshua_Nguyen_Resume_v3.pdf'
 
 const isLoading = ref(true)
 
@@ -15,7 +15,7 @@ function onLoaded() {
       <h1 class="text-[28px] lg:text-[36px] font-atyp-display font-medium">Resume</h1>
       <a 
         :href="resumePdf" 
-        download="Joshua_D_Nguyen_Resume_2025.pdf"
+        download="Joshua_Nguyen_Resume_v3.pdf"
         class="bg-[#CCF303] text-black font-atyp-display font-medium px-5 py-2 rounded hover:bg-[#b8da02] transition-colors"
       >
         Download PDF
